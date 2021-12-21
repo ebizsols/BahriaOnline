@@ -1,0 +1,1127 @@
+/*
+ @Author: Company Name
+ @URL: http://companyname.com
+ This file contains the styling for the actual theme, this
+ is the file you need to edit to change the look of the
+ theme.
+ However we used Less script to make things easy to maintain, this is the compressed ourput, we recommend to edit the less files and then recombile the files and add the result here, if you don't like to use less you can edit this file here.
+ 
+ This files contents are outlined below.
+ 01.	Theme Reset Style
+ 02.	Global Elements
+ 03.	Menu
+ 04.	Social
+ 05.	Article
+ 06.	Posts
+ 07.	Responsive
+ 08.	Widgets
+ 09.	Flexslider
+ 10.	Grid
+*/
+
+/* =============================================
+			Theme Reset Style					
+============================================= */
+@import url(https://fonts.googleapis.com/css?family=Catamaran:400,500,600,700|Great+Vibes|Montserrat:400,500,500i,700);
+* {
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	color: #324b6e;
+	background: #fff;
+	font:400 13px/23px 'Montserrat', Arial, Helvetica, sans-serif;
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+	color: #324b6e;
+	margin: 0 0 8px;
+	font-weight: 600;
+	line-height: 1.5;
+	font-style: normal;
+	text-transform:capitalize;
+	font-family: 'Catamaran', Arial, Helvetica, sans-serif;
+}
+h1 { font-size: 48px;}
+h2 { font-size: 36px;}
+h3 { font-size: 24px;}
+h4 { font-size: 18px;}
+h5 { font-size: 16px;}
+h6 { font-size: 14px;}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a { color: #324b6e;}
+p a,
+p a:hover { text-decoration:none; }
+p {
+	margin: 0 0 20px;
+	line-height: 20px;
+	letter-spacing: normal;
+}
+a { text-decoration: none; }
+a:hover, a:focus, a:active {
+	outline: none;
+	text-decoration: none;
+}
+ul { margin: 0; }
+figure {
+	margin-bottom: 6px;
+	position: relative;
+}
+img {
+	height: auto;
+	max-width: 100%;
+}
+strong { color: #414141; }
+iframe {
+	width: 100%;
+	float: left;
+	border: none;
+}
+.wp-caption,
+.wp-caption-text,
+.gallery-caption,
+.bypostauthor {}
+.wp-caption.alignleft,
+.wp-caption.alignnone { width: 100%; }
+button { border: none; }
+textarea,
+select,
+.jf-select select,
+.form-control,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+	color: #666;
+	outline: none;
+	height: 50px;
+	background:#fff;
+	font-size: 14px;
+	-webkit-box-shadow: none;
+			box-shadow: none;
+	line-height: 18px;
+	padding: 10px 20px 10px 44px;
+	border-radius: 5px;
+	display: inline-block;
+	vertical-align: middle;
+	border: 1px solid #ddd;
+	text-transform: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+textarea.form-control{
+	resize: none;
+	height: 210px;
+}
+.form-control::-webkit-input-placeholder { color: #666; } /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder { color: #666; } /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { color: #666; } /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { color: #666; } /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder { color:#66; } /* Microsoft Edge */
+input:focus,
+.select select:focus,
+.form-control:focus {
+	color: #666;
+	border-color: #666;
+	-webkit-box-shadow:none !important;
+			box-shadow:none !important;
+}
+.form-group {
+	width: 100%;
+	float: left;
+	margin:0 0 20px;
+}
+label {
+	color: #666;
+	display: block;
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+form p {
+	float: left;
+	position: relative;
+	width: 100%;
+}
+form p span i {
+	top: 13px;
+	left: 16px;
+	color: #474747;
+	position: absolute;
+}
+option { padding: 5px 15px; }
+li {
+	line-height: 28px;
+	list-style: disc inside none;
+}
+ul ul { margin-left: 20px; }
+ol {
+	float: none;
+	list-style: decimal;
+	padding-left: 15px;
+}
+ol ol { margin-left: 20px; }
+ol li {
+	list-style: decimal;
+	width: 100%;
+}
+table {
+	background-color: transparent;
+	max-width: 100%;
+}
+th { text-align: left; }
+table {
+	width: 100%;
+	margin-bottom: 15px;
+}
+table > thead > tr > th,
+table > tbody > tr > th,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > tbody > tr > td,
+table > tfoot > tr > td {
+	border-top: 1px solid #dbdbdb;
+	border: 1px solid #dbdbdb;
+	line-height: 2.5;
+	padding-left: 3px;
+	text-align: center;
+	vertical-align: top;
+}
+table thead tr th {
+	border-top: 1px solid #dbdbdb;
+	text-align: center;
+	text-transform: capitalize;
+}
+.table > caption + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > th,
+.table > thead:first-child > tr:first-child > th,
+.table > caption + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > td,
+.table > thead:first-child > tr:first-child > td { border-top: 1px solid #dbdbdb; }
+table > thead > tr > th {
+	border-bottom: 2px solid #dbdbdb;
+	vertical-align: bottom;
+}
+table > caption + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > th,
+table > thead:first-child > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > td { border-bottom: 0; }
+table > tbody + tbody { border-top: 2px solid #dbdbdb; }
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td { padding: 6px 10px; }
+p ins { color: #666; }
+dl dd { margin-left: 20px; }
+address { font-style: italic; }
+/* =============================================
+			Theme Custom Select					
+============================================= */
+.jf-select {
+	color:#666;
+	float:left;
+	width: 100%;
+	position: relative;
+}
+.jf-select:after {
+	top: 0;
+	right: 15px;
+	z-index: 2;
+	color: #666;
+	display: block;
+	content: '\e874';
+	position: absolute;
+	text-align: center;
+	font-size: inherit;
+	line-height: 40px;
+	font-family: 'Linearicons-Free';
+}
+.jf-select select {
+	z-index: 1;
+	width: 100%;
+	position: relative;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+.jf-select select option { color:#666; }
+/* =============================================
+		Theme Custom CheckBox Radio				
+============================================= */
+.jf-radio,
+.jf-radio label,
+.jf-checkbox,
+.jf-checkbox label {
+	margin:0;
+	width: 100%;
+	float: left;
+	position: relative;
+}
+.jf-radio label,
+.jf-checkbox label {
+	cursor:pointer;
+	display:block;
+	padding:0 0 0 20px;
+}
+.jf-radio input[type=radio],
+.jf-checkbox input[type=checkbox] { display:none; }
+.jf-radio input[type=radio] + label:before,
+.jf-checkbox input[type=checkbox] + label:before {
+	top: 4px;
+	left: 0;
+	color: #373542;
+	font-size: 14px;
+	line-height: 14px;
+	content: '\f096';
+	position: absolute;
+	font-family: 'FontAwesome';
+}
+.jf-radio input[type=radio] + label:before { content:'';}
+.jf-radio input[type=radio]:checked + label:before,
+.jf-checkbox input[type=checkbox]:checked + label:before {content:'\f046';}
+/* =============================================
+			Theme Global Elements				
+============================================= */
+.jf-haslayout {
+	width:100%;
+	float:left;
+}
+.jf-sectionspace {padding: 60px 0;}
+.jf-locationmap {
+	width: 100%;
+	float: left;
+	height: 500px;
+}
+.jf-btn-sm {
+	padding: 0 20px;
+	line-height: 30px;
+}
+.video-wrap {
+	width: 100%;
+	max-width: 800px;
+	position: relative;
+	float: left;
+}
+.video-wrap iframe {
+    float: left;
+    height: 388px;
+    width: 909px;
+}
+.jf-btn {
+	color: #324b6e;
+	padding: 0 20px;
+	background: #fff;
+	position:relative;
+	text-align:center;
+	border-radius:5px;
+	display: inline-block;
+	vertical-align: middle;
+	border: 1px solid #ddd;
+	text-transform: capitalize;
+	font:400 12px/40px 'Montserrat', Arial, Helvetica, sans-serif;
+}
+.jf-btn.jf-active,
+.jf-btn:hover {color:#fff;}
+.jf-btn-lg { width: 100%;}
+.jf-socialicons {
+	overflow: hidden;
+	list-style: none;
+	text-align:center;
+	line-height: 34px;
+}
+.jf-socialicons li {
+	float: left;
+	padding: 0 4px;
+	line-height: inherit;
+	list-style-type: none;
+}
+.jf-socialicons li a {
+	width: 34px;
+	height: 34px;
+	color: #fff;
+	display:block;
+	background:#000;
+	overflow:hidden;
+	font-size: 13px;
+	line-height: 34px;
+	position:relative;
+	text-align: center;
+	border-radius: 34px;
+	text-transform:capitalize;
+}
+.jf-inputwithicon.jf-facebook .jf-icon,
+.jf-checkbox.jf-facebook,
+li.jf-facebook a { background:#3b5999; }
+.jf-inputwithicon.jf-twitter .jf-icon,
+.jf-checkbox.jf-twitter,
+li.jf-twitter a { background:#55acee; }
+.jf-inputwithicon.jf-linkedin .jf-icon,
+.jf-checkbox.jf-linkedin,
+li.jf-linkedin a { background:#0077B5; }
+.jf-inputwithicon.jf-skype .jf-icon,
+.jf-checkbox.jf-skype,
+li.jf-skype a { background:#00aff0; }
+.jf-checkbox.jf-dropbox,
+li.jf-dropbox a { background:#007ee5; }
+.jf-checkbox.jf-vimeo,
+li.jf-vimeo a { background:#1ab7ea; }
+.jf-checkbox.jf-tumblr,
+li.jf-tumblr a { background:#34465d; }
+.jf-checkbox.jf-yahoo,
+li.jf-yahoo a { background:#410093; }
+.jf-inputwithicon.jf-googleplus .jf-icon,
+.jf-checkbox.jf-googleplus,
+li.jf-googleplus a { background:#dd4b39; }
+.jf-inputwithicon.jf-pinterestp .jf-icon,
+.jf-checkbox.jf-pinterestp,
+li.jf-pinterestp a { background:#bd081c; }
+.jf-checkbox.jf-youtube,
+li.jf-youtube a { background:#cd201f; }
+.jf-checkbox.jf-stumbleupon,
+li.jf-stumbleupon a { background:#eb4924; }
+.jf-checkbox.jf-reddit,
+li.jf-reddit a { background:#ff5700; }
+.jf-checkbox.jf-quora,
+li.jf-quora a { background:#b92b27; }
+.jf-checkbox.jf-yelp,
+li.jf-yelp a { background:#af0606; }
+.jf-checkbox.jf-soundcloud,
+li.jf-soundcloud a { background:#ff3300; }
+.jf-checkbox.jf-whatsapp,
+li.jf-whatsapp a { background:#25d366; }
+.jf-checkbox.jf-wechat,
+li.jf-wechat a { background:#09b83e; }
+.jf-checkbox.jf-instagram,
+li.jf-instagram a { background:#e4405f; }
+.jf-checkbox.jf-dribbble,
+li.jf-dribbble a { background:#ea4c89; }
+.jf-checkbox.jf-flickr,
+li.jf-flickr a { background:#ff0084; }
+.jf-checkbox.jf-rss,
+li.jf-rss a { background:#ff6600; }
+.jf-socialiconsborder li.jf-facebook a {
+	color: #3b5999;
+	border: 1px solid #3b5999;
+}
+.jf-socialiconsborder li.jf-twitter a {
+	color: #55acee;
+	border: 1px solid #55acee;
+}
+.jf-socialiconsborder li.jf-linkedin a {
+	color: #0077B5;
+	border: 1px solid #0077B5;
+}
+.jf-socialiconsborder li.jf-skype a {
+	color: #00aff0;
+	border: 1px solid #00aff0;
+}
+.jf-socialiconsborder li.jf-dropbox a {
+	color: #007ee5;
+	border: 1px solid #007ee5;
+}
+.jf-socialiconsborder li.jf-vimeo a {
+	color: #1ab7ea;
+	border: 1px solid #1ab7ea;
+}
+.jf-socialiconsborder li.jf-tumblr a {
+	color: #34465d;
+	border: 1px solid #34465d;
+}
+.jf-socialiconsborder li.jf-yahoo a {
+	color: #410093;
+	border: 1px solid #410093;
+}
+.jf-socialiconsborder li.jf-googleplus a {
+	color: #dd4b39;
+	border: 1px solid #dd4b39;
+}
+.jf-socialiconsborder li.jf-pinterestp a {
+	color: #bd081c;
+	border: 1px solid #bd081c;
+}
+.jf-socialiconsborder li.jf-youtube a {
+	color: #cd201f;
+	border: 1px solid #cd201f;
+}
+.jf-socialiconsborder li.jf-stumbleupon a {
+	color: #eb4924;
+	border: 1px solid #eb4924;
+}
+.jf-socialiconsborder li.jf-reddit a {
+	color: #ff5700;
+	border: 1px solid #ff5700;
+}
+.jf-socialiconsborder li.jf-quora a {
+	color: #b92b27;
+	border: 1px solid #b92b27;
+}
+.jf-socialiconsborder li.jf-yelp a {
+	color: #af0606;
+	border: 1px solid #af0606;
+}
+.jf-socialiconsborder li.jf-soundcloud a {
+	color: #ff3300;
+	border: 1px solid #ff3300;
+}
+.jf-socialiconsborder li.jf-whatsapp a {
+	color: #25d366;
+	border: 1px solid #25d366;
+}
+.jf-socialiconsborder li.jf-wechat a {
+	color: #09b83e;
+	border: 1px solid #09b83e;
+}
+.jf-socialiconsborder li.jf-instagram a {
+	color: #e4405f;
+	border: 1px solid #e4405f;
+}
+.jf-socialiconsborder li.jf-dribbble a {
+	color: #ea4c89;
+	border: 1px solid #ea4c89;
+}
+.jf-socialiconsborder li.jf-flickr a {
+	color: #ff0084;
+	border: 1px solid #ff0084;
+}
+.jf-socialiconsborder li.jf-rss a {
+	color: #ff6600;
+	border: 1px solid #ff6600;
+}
+.jf-socialiconsborder li a{
+	background: none;
+	line-height: 32px;
+}
+.jf-socialiconsborder li.jf-facebook a i{ color: #3b5999; }
+.jf-socialiconsborder li.jf-twitter a i{ color: #55acee; }
+.jf-socialiconsborder li.jf-linkedin a i{ color: #0077B5; }
+.jf-socialiconsborder li.jf-skype a i{ color: #00aff0; }
+.jf-socialiconsborder li.jf-dropbox a i{ color: #007ee5; }
+.jf-socialiconsborder li.jf-vimeo a i{ color: #1ab7ea; }
+.jf-socialiconsborder li.jf-tumblr a i{ color: #34465d; }
+.jf-socialiconsborder li.jf-yahoo a i{ color: #410093; }
+.jf-socialiconsborder li.jf-googleplus a i{ color: #dd4b39; }
+.jf-socialiconsborder li.jf-pinterestp a i{ color: #bd081c; }
+.jf-socialiconsborder li.jf-youtube a i{ color: #cd201f; }
+.jf-socialiconsborder li.jf-stumbleupon a i{ color: #eb4924; }
+.jf-socialiconsborder li.jf-reddit a i{ color: #ff5700; }
+.jf-socialiconsborder li.jf-quora a i{ color: #b92b27; }
+.jf-socialiconsborder li.jf-yelp a i{ color: #af0606; }
+.jf-socialiconsborder li.jf-soundcloud a i{ color: #ff3300; }
+.jf-socialiconsborder li.jf-whatsapp a i{ color: #25d366; }
+.jf-socialiconsborder li.jf-wechat a i{ color: #09b83e; }
+.jf-socialiconsborder li.jf-instagram a i{ color: #e4405f; }
+.jf-socialiconsborder li.jf-dribbble a i{ color: #ea4c89; }
+.jf-socialiconsborder li.jf-flickr a i{ color: #ff0084; }
+.jf-socialiconsborder li.jf-rss a i{ color: #ff6600; }
+.jf-socialicons li a i {
+	color: #fff;
+	display:block;
+	text-align:center;
+	font-size: inherit;
+	line-height: inherit;
+}
+.jf-socialsharewithtext li a i{width: 34px;}
+.jf-socialicons li a:hover { color: #fff; }
+.jf-roundicontext .jf-usericonholder {
+	width: 250px;
+	display: block;
+	overflow: hidden;
+	font-style: normal;
+}
+.jf-roundicontext i,
+.jf-roundicontext span {
+	float:left;
+	font-size: inherit;
+	line-height: inherit;
+}
+.jf-roundicontext span { padding: 0 15px 0 0; }
+.jf-roundicontext:focus,
+.jf-roundicontext:hover {
+	color: #fff;
+	width: 100%;
+}
+.jf-roundicontext:hover .jf-usericonholder { width: 100%; }
+.jf-socialiconssimple{
+	width:100%;
+	float:left;
+	list-style:none;
+	line-height:20px;
+}
+.jf-socialiconssimple li{
+	float:left;
+	padding:0 10px;
+	line-height:inherit;
+	list-style-type:none;
+}
+.jf-socialiconssimple li:first-child{padding-left:0;}
+.jf-socialiconssimple li a{
+	width:auto;
+	height:auto;
+	display:block;
+	font-size:18px;
+	background:none;
+	border-radius:0;
+	line-height:inherit;
+}
+.jf-socialiconssimple li.jf-facebook a i{color:#3b5999;}
+.jf-socialiconssimple li.jf-twitter a i{color:#55acee;}
+.jf-socialiconssimple li.jf-linkedin a i{color:#0077B5;}
+.jf-socialiconssimple li.jf-googleplus a i{color:#dd4b39;}
+.jf-socialiconssimple li.jf-rss a i{color:#ff6600;}
+.jf-socialiconssimple li.jf-vimeo a i{color:#1ab7ea;}
+.jf-socialiconssimple li.jf-tumblr a i{color:#34465d;}
+.jf-socialiconssimple li.jf-yahoo a i{color:#410093;}
+.jf-socialiconssimple li.jf-yelp a i{color:#af0606;}
+.jf-socialiconssimple li.jf-pinterestp a i{color:#bd081c;}
+.jf-socialiconssimple li.jf-youtube a i{color:#cd201f;}
+.jf-socialiconssimple li.jf-stumbleupon a i{color:#eb4924;}
+.jf-socialiconssimple li.jf-reddit a i{color:#ff5700;}
+.jf-socialiconssimple li.jf-bloggerb a i{color:#f57d00;}
+.jf-verticalmiddle {
+	margin: 0 -1px;
+	float: none !important;
+	display: inline-block;
+	vertical-align: middle;
+}
+.jf-description {
+	width: 100%;
+	float: left;
+}
+.jf-bglight { background:#fafafa;}
+.jf-bgdark { background:#373542;}
+.jf-stars span,
+.jf-stars {
+	width:100px;
+	height: 16px;
+	float: left;
+	line-height:16px;
+	position:relative;
+}
+.jf-stars span:after,
+.jf-stars:before {
+	top: 0;
+	left: 0;
+	font-size: 16px;
+	line-height: 16px;
+	position: absolute;
+	letter-spacing: 4px;
+	font-family: 'FontAwesome';
+	color: rgba(218, 218, 218, .8);
+	content: '\f005 \f005 \f005 \f005 \f005';
+}
+.jf-stars span {
+	width:75%;
+	overflow: hidden;
+}
+.jf-stars span:after {color:#000;}
+.row.no-gutters {
+	margin-right: 0;
+	margin-left: 0;
+}
+.no-gutters > [class^="col-"],
+.no-gutters > [class*="col-"],
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*="col-"] {
+	padding-right: 0;
+	padding-left: 0;
+}
+.jf-dropdowarrow{
+	top:9px;
+	z-index:9;
+	right:15px;
+	color:#fff;
+	width:20px;
+	height:20px;
+	display:none;
+	cursor:pointer;
+	font-size:16px;
+	line-height:20px;
+	position:absolute;
+	text-align:center;
+}
+.jf-dropdowarrow i{
+	display: block;
+	font-size: inherit;
+	line-height: inherit;
+}
+.jf-open .jf-dropdowarrow i:before{content: '\f106';}
+.menu-item-has-children,
+.menu-item-has-mega-menu{ position: relative; }
+
+.mega-menu-row{
+	width: 100%;
+	float: left;
+	display: table;
+	table-layout: fixed;
+}
+.mega-menu-col{
+	display: table-cell;
+	vertical-align: top;
+}
+.navbar-toggle {
+	border: 0;
+	margin: 3px 0;
+	border-radius: 0;
+	padding: 10px 12px;
+}
+.navbar-toggle .icon-bar{background: #fff;}
+.jf-formtheme{
+	width:100%;
+	float:left;
+}
+.jf-formtheme fieldset{
+	border:0;
+	margin:0;
+	padding:0;
+	width:100%;
+	float:left;
+	position:relative;
+}
+.jf-inputwithicon{position:relative;}
+.jf-inputwithicon i{
+	top:0;
+	left:0;
+	z-index:2;
+	width:50px;
+	height:50px;
+	line-height:50px;
+	position:absolute;
+	text-align: center;
+}
+.jf-inputwithicon .form-control{
+	z-index:1;
+	position:relative;
+}
+.jf-btnviewall{
+	float:right;
+	color:#55acee;
+	display:block;
+	font-size:14px;
+	line-height:14px;
+}
+/*==========================================================================================
+		For Mobile Nav use this code in Responsive.css desired Query
+==========================================================================================*/
+/*
+.navbar-toggle{display: block;}
+.navbar-collapse.collapse {display: none!important;}
+.collapse.in{display:block !important;}
+*/
+/*==========================================================================================
+			For Mobile Nav use this code in Responsive.css desired Query
+==========================================================================================*/
+/* =============================================
+			Theme Pagination Style				
+============================================= */
+.jf-pagination {
+	width:100%;
+	float: left;
+	font:14px/24px 'Montserrat', Arial, Helvetica, sans-serif;
+}
+.jf-pagination ul {
+	margin:0;
+	padding:0;
+	float:right;
+	list-style:none;
+	text-align: center;
+	line-height: inherit;
+}
+.jf-pagination ul li {
+	float:left;
+	margin:0 6px;
+	line-height: inherit;
+	list-style-type:none;
+}
+.jf-pagination ul li.jf-prevpage { margin-left:0; }
+.jf-pagination ul li.jf-nextpage { margin-right:0; }
+.jf-pagination ul li a{
+	width:20px;
+	display:block;
+	color:#373542;
+	text-align:center;
+	position:relative;
+	line-height: inherit;
+}
+.jf-pagination ul li.jf-nextpage a,
+.jf-pagination ul li.jf-prevpage a {
+	width:auto;
+	font-size: 20px;
+	overflow:hidden;
+	position:relative;
+}
+.jf-pagination ul li.jf-nextpage a { padding:0 0 0 25px; }
+.jf-pagination ul li.jf-prevpage a { padding:0 25px 0 0; }
+.jf-pagination ul li.jf-nextpage a:after,
+.jf-pagination ul li.jf-prevpage a:after {
+	top:50%;
+	opacity:0;
+	content:'';
+	width:15px;
+	height:1px;
+	background:#373542;
+	position:absolute;
+	visibility:hidden;
+}
+.jf-pagination ul li.jf-nextpage a:after { right:50px; }
+.jf-pagination ul li.jf-prevpage a:after { left:50px; }
+.jf-pagination ul li.jf-nextpage a:hover:after,
+.jf-pagination ul li.jf-prevpage a:hover:after {
+	opacity:1;
+	visibility:visible;
+}
+.jf-pagination ul li.jf-nextpage a:hover:after { right:2px; }
+.jf-pagination ul li.jf-prevpage a:hover:after { left:2px; }
+/* =============================================
+			Theme BreadCrumb Style				
+============================================= */
+.jf-breadcrumb {
+	padding: 0;
+	margin:0;
+	color: #fff;
+	float: right;
+	list-style: none;
+	text-align: right;
+	text-transform: uppercase;
+	font:14px/44px 'Montserrat', Arial, Helvetica, sans-serif;
+}
+.jf-breadcrumb li {
+	width:auto;
+	list-style-type:none;
+	display: inline-block;
+	vertical-align: middle;
+	line-height:inherit;
+	padding:0 15px;
+	position:relative;
+}
+.jf-breadcrumb li:after {
+	top:0;
+	left:-3px;
+	content:'-';
+	position:absolute;
+}
+.jf-breadcrumb li:last-child { padding: 0 0 0 15px;}
+.jf-breadcrumb li:first-child:after { display: none; }
+.jf-breadcrumb li a {
+	display:block;
+	color:#fff;
+}
+/* =============================================
+			Theme Styling						
+============================================= */
+.jf-home {}
+.jf-wrapper {overflow:hidden;}
+.jf-main {padding:20px 0;}
+.jf-footer {}
+.jf-btnarea{
+	width:100%;
+	float:left;
+}
+.jf-btnarea .jf-btn + .jf-btn{margin:0 0 0 10px;}
+/* =============================================
+			Top Bar Style					
+============================================= */
+.jf-themedate{
+	float: left;
+	width: auto;
+	padding:18px 30px;
+}
+.jf-themedate p{
+	margin:0;
+	font-size: 14px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.jf-themedate p i{
+	color: #a2a6af;
+	font-size: 14px;
+	margin-right: 5px;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.jf-mainbanner{
+	float: left;
+	width: 100%;
+}
+.jf-bannerimg{
+	margin:0;
+	float: left;
+	width: 100%;
+	overflow: hidden; 
+	border-radius: 10px;
+}
+.jf-bannerimg img{
+	max-width: 100%;
+	display: block;
+	border-radius: 10px; 
+}
+.jf-maincontantsection,
+.jf-sectionhead,
+.jf-sectiontitle{
+	float: left;
+	width: 100%;
+}
+ .jf-sectiontitle h2{
+	font-size: 26px;
+	margin-bottom: 0;
+	line-height: 26px;
+	font-weight: bold;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #d7d7d7;
+}
+.jf-sectiontitle .jf-subsectiontitle{
+	font-size: 20px;
+	margin-top: 18px;
+	font-weight: 700;
+	line-height: 18px;
+}
+.jf-sectiondetails{
+	float: left;
+	width: 100%;
+	list-style: none;
+	line-height: 20px;
+	margin-left: 15px;
+}
+.jf-sectiondetails li{
+	width: 100%;
+	float: left;
+	padding-left: 15px;
+	position: relative;
+	line-height: inherit;
+	list-style-type: none;
+}
+.jf-sectiondetails li + li{margin-top: 9px;}
+.jf-sectiondetails li:before{
+	top: 0;
+	left: 0;
+	content: "\f101";
+	font-size: 14px;
+	position: absolute;
+	line-height: inherit;
+	font-family: 'FontAwesome';
+}
+.jf-sectiondetails li span{
+	display:block;
+	font-size: 14px;
+	line-height: inherit;
+}
+.jf-sectiondetails li span em{
+	font-style: normal;
+	line-height: inherit;
+}
+.label{
+	color: #fff;
+	font-size: 75%;
+	display: inline;
+	padding: 2px 3px;
+	font-weight: 700;
+	font-style: normal;
+	text-align: center;
+	white-space: nowrap;
+	border-radius: 3px;
+	vertical-align: baseline;
+}
+.label-danger{background-color: #d9534f;}
+.label-warning{background-color: #f0ad4e;}
+.jf-description p{
+	font-size:14px;
+	line-height: 24px;
+	margin:13px 0 8px;
+}
+.jf-sectiontitlevtwo h2{
+	border:0;
+	font-size:30px;
+	font-weight: 500;  
+}
+.jf-alertholder{
+	float: left;
+	width: 100%;
+	margin-top: 20px;
+}
+.jf-alertholder .jf-alerthold{max-width: 950px;}
+.jf-alerthold{
+	margin:0;
+	width: 100%;
+	clear: both;
+	float: left;
+}
+.jf-alerthold + .jf-alerthold{
+	margin-top: 20px;
+}
+.jf-btn.jf-active{border-color:#00cc67;}
+/* ======================================================
+		 Gallery Style				
+======================================================== */
+.jf-tabgallery{
+	float: left;
+	width:100%;
+}
+.jf-tabgalleryimgs{
+	width:auto;
+	float: left;
+	margin:20px -5px;
+	list-style:none;
+}
+.jf-tabgalleryimgs li{
+	width:12.5%;
+	float: left;
+	padding:5px;
+	list-style-type: none;
+}
+.jf-tabgalleryimgs li figure{
+	margin:0;
+	width:auto;
+	float: 100%;
+}
+.jf-tabgalleryimgs li figure img{
+	width:100%;
+	display:block;
+}
+.jf-tabgallery .jf-pagination{
+	line-height:13px;
+	padding:25px 0 8px;
+}
+.mCSB_inside > .mCSB_container{margin:0;}
+/* =============================================
+			Footer Style					
+============================================= */
+.jf-addnav ul {
+    width: 100%;
+    float: left;
+    font-size: 13px;
+    list-style: none;
+    line-height: 20px;
+}
+.jf-addnav ul li {
+	float: left;
+	padding: 0 10px;
+	position: relative;
+	line-height: inherit;
+	list-style-type: none;
+}
+.jf-copyrights{margin:0;}
+.jf-bannerimgvtwo{width: auto;}
+/*==============================================
+			Preloader Style						
+==============================================*/
+.preloader-outer {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	position: fixed;
+	background: #fff;
+}
+.loader {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 20px;
+	width: 250px;
+	margin: auto;
+	position: absolute;
+}
+.loader--dot {
+	animation-name: loader;
+	animation-timing-function: ease-in-out;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	height: 15px;
+	width: 15px;
+	border-radius: 100%;
+	background-color: black;
+	position: absolute;
+	border: 2px solid white;
+}
+.loader--dot:first-child {
+	background-color: #2eca80;
+	animation-delay: 0.5s;
+}
+.loader--dot:nth-child(2) {
+	background-color: #0ca5e1;
+	animation-delay: 0.4s;
+}
+.loader--dot:nth-child(3) {
+	background-color: #16a0de;
+	animation-delay: 0.3s;
+}
+.loader--dot:nth-child(4) {
+	background-color: #7751e5;
+	animation-delay: 0.2s;
+}
+.loader--dot:nth-child(5) {
+	background-color: #60beeb;
+	animation-delay: 0.1s;
+}
+.loader--dot:nth-child(6) {
+	background-color: #fbef5a;
+	animation-delay: 0s;
+}
+.loader--text {
+	position: absolute;
+	top: 200%;
+	left: 0;
+	right: 0;
+	width: 4rem;
+	margin: auto;
+}
+.loader--text:after {
+	content: "Loading";
+	font-weight: bold;
+	animation-name: loading-text;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes loader {
+	15% {
+		transform: translateX(0);
+	}
+	45% {
+		transform: translateX(230px);
+	}
+	65% {
+		transform: translateX(230px);
+	}
+	95% {
+		transform: translateX(0);
+	}
+}
+@keyframes loading-text {
+	0% {
+		content: "Loading";
+	}
+	25% {
+		content: "Loading.";
+	}
+	50% {
+		content: "Loading..";
+	}
+	75% {
+		content: "Loading...";
+	}

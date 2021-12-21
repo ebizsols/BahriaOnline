@@ -1,0 +1,157 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"X-Generator: babel-plugin-makepot\n"
+
+#: client/blocks/upe/payment-method.js:49
+msgid "Credit / Debit Card"
+msgstr ""
+
+#: client/blocks/upe/payment-method.js:65
+msgid "Stripe Credit Card payment method"
+msgstr ""
+
+#: client/data/payment-gateway/actions.js:45
+#: client/data/settings/actions.js:49
+msgid "Settings saved."
+msgstr ""
+
+#: client/data/payment-gateway/actions.js:50
+#: client/data/settings/actions.js:54
+msgid "Error saving settings."
+msgstr ""
+
+#: client/settings/advanced-settings-section/index.js:18
+msgid "Advanced settings"
+msgstr ""
+
+#: client/settings/general-settings-section/disable-upe-confirmation-modal.js:100
+msgid "Disable the new payments experience"
+msgstr ""
+
+#: client/settings/general-settings-section/disable-upe-confirmation-modal.js:114
+#: client/settings/general-settings-section/remove-method-confirmation-modal.js:42
+#: client/settings/payments-and-transactions-section/manual-capture-control.js:90
+msgid "Cancel"
+msgstr ""
+
+#: client/settings/general-settings-section/disable-upe-confirmation-modal.js:123
+msgid "Disable"
+msgstr ""
+
+#: client/settings/general-settings-section/disable-upe-confirmation-modal.js:129
+msgid ""
+"Without the new payments experience, your customers will only be able to "
+"pay using credit card / debit card. You will not be able to add other "
+"sales-boosting payment methods anymore."
+msgstr ""
+
+#: client/settings/general-settings-section/disable-upe-confirmation-modal.js:138
+msgid "Payment methods that require the new payments experience:"
+msgstr ""
+
+#: client/settings/general-settings-section/disable-upe-confirmation-modal.js:165
+msgid "Need help? Visit {{ docsLink /}} or {{supportLink /}}."
+msgstr ""
+
+#: client/settings/general-settings-section/disable-upe-confirmation-modal.js:172
+msgid "Stripe docs"
+msgstr ""
+
+#: client/settings/general-settings-section/disable-upe-confirmation-modal.js:180
+msgid "contact support"
+msgstr ""
+
+#: client/settings/general-settings-section/disable-upe-confirmation-modal.js:53
+msgid "🤔 What made you disable the new payments experience?"
+msgstr ""
+
+#: client/settings/general-settings-section/disable-upe-confirmation-modal.js:60
+msgid "Share feedback (1 min)"
+msgstr ""
+
+#: client/settings/general-settings-section/disable-upe-confirmation-modal.js:73
+msgid "There was an error disabling the new payment methods."
+msgstr ""
+
+#: client/settings/general-settings-section/remove-method-confirmation-modal.js:14
+#. %1: payment method name (e.g.: giropay, EPS, Sofort, etc).
+msgid ""
+"Are you sure you want to remove <strong>%1$s</strong>? Your customers will "
+"no longer be able to pay using <strong>%1$s</strong>."
+msgstr ""
+
+#: client/settings/general-settings-section/remove-method-confirmation-modal.js:27
+#. %s: payment method name (e.g.: giropay, EPS, Sofort, etc).
+msgid "Remove %s from checkout"
+msgstr ""
+
+#: client/settings/general-settings-section/remove-method-confirmation-modal.js:39
+msgid "Remove"
+msgstr ""
+
+#: client/settings/general-settings-section/remove-method-confirmation-modal.js:53
+msgid "You can add it again at any time in Stripe settings."
+msgstr ""
+
+#: client/settings/payments-and-transactions-section/manual-capture-control.js:102
+msgid "Are you sure you want to enable manual capture of payments?"
+msgstr ""
+
+#: client/settings/payments-and-transactions-section/manual-capture-control.js:109
+msgid ""
+"Only cards support manual capture. When enabled, all other payment methods "
+"will be hidden from checkout."
+msgstr ""
+
+#: client/settings/payments-and-transactions-section/manual-capture-control.js:115
+msgid ""
+"You must capture the payment on the order details screen within 7 days of "
+"authorization, otherwise the money will return to the shopper."
+msgstr ""
+
+#: client/settings/payments-and-transactions-section/manual-capture-control.js:71
+msgid "Issue an authorization on checkout, and capture later"
+msgstr ""
+
+#: client/settings/payments-and-transactions-section/manual-capture-control.js:75
+msgid ""
+"Charge must be captured on the order details screen within 7 days of "
+"authorization, otherwise the authorization and order will be canceled."
+msgstr ""
+
+#: client/settings/payments-and-transactions-section/manual-capture-control.js:83
+msgid "Enable manual capture"
+msgstr ""
+
+#: client/settings/payments-and-transactions-section/manual-capture-control.js:96
+msgid "Enable"
+msgstr ""
+
+#: client/upe-onboarding-wizard/upe-preview-methods-selector/add-payment-methods-task.js:136
+msgid "Add payment methods"
+msgstr ""
+
+#: client/upe-onboarding-wizard/upe-preview-methods-selector/add-payment-methods-task.js:168
+msgid "Review accepted payment methods"
+msgstr ""
+
+#: client/upe-onboarding-wizard/upe-preview-methods-selector/add-payment-methods-task.js:177
+msgid ""
+"We've added methods that you'd already enabled. For best results, we "
+"recommand adding all available payment methods. We'll only show your "
+"customers the most relevant payment methods based on their location and "
+"purchasing history. {{learnMoreLink}}Learn more{{/learnMoreLink}}"
+msgstr ""
+
+#: client/upe-onboarding-wizard/upe-preview-methods-selector/add-payment-methods-task.js:196
+msgid "Payments accepted at checkout"
+msgstr ""
+
+#: client/upe-onboarding-wizard/upe-preview-methods-selector/add-payment-methods-task.js:206
+msgid "Select all"
+msgstr ""
+
+#: client/upe-onboarding-wizard/upe-preview-methods-selector/payment-method-checkbox/index.js:36
+msgid "Information about the payment method, click to expand"
+msgstr ""

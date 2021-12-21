@@ -1,0 +1,67 @@
+/*==========================================================================================
+								Primery Theme Colors										
+==========================================================================================*/
+/*=============================================
+			Theme Text Color
+=============================================*/
+a,
+p a,
+p a:hover,
+a:hover,
+a:focus,
+a:active,
+.jf-stars span:after,
+.jf-empoyerinfo h2,
+.jf-btnjobalerts li.jf-btnfollowon a,
+.jf-btnmakedefault span,
+.jf-profilecomplete li.jf-profilecompleted i,
+.jf-smartscancontent span em
+
+
+
+
+{ color: #00cc67; }
+/*=============================================
+			Theme Background Color
+=============================================*/
+.jf-btn:hover,
+.jf-dropdowarrow,
+.navbar-toggle,
+.jf-searchoptions .form-group .jf-radio.jf-findjobs label,
+.jf-searchholder .chosen-container .chosen-results li.result-selected,
+.jf-searchholder .chosen-container .chosen-results li.highlighted,
+.jf-tagfeature:hover,
+.jf-tagfeature.jf-tagfeatured,
+.jf-dashboardnav > ul > li > a:hover:after,
+.jf-dashboardnav > ul > li.menu-item-has-children > a:after,
+.jf-dashboardnav > ul > li.page_item_has_children > a:after,
+.jf-btnsearch,
+.jf-chartmonth li:hover a,
+.jf-chartmonth li.jf-active a,
+.jf-formsuccessstory .jf-textarea .form-group.jf-btns .jf-btn,
+.jf-btnaddproject,
+.jf-btnaddproject:focus,
+.jf-searchoptions .form-group:after,
+.jf-slidercontentholdervtwo .jf-searchoptions .form-group .jf-radio label:hover,
+.jf-slidercontentholdervtwo .jf-searchoptions .form-group .jf-radio input[type=radio]:checked + label,
+.jf-active,
+.jf-package:after,
+.jf-dashboardnav > ul > li.active > a:after
+
+
+{ background:#00cc67; }
+.mCSB_scrollTools .mCSB_dragger,
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ background:#00cc67 !important;}
+/*=============================================
+			Theme Border Color
+=============================================*/
+input:focus,
+.jf-btn:hover,
+.select select:focus,
+.form-control:focus,
+.jf-tagfeature:hover,
+.jf-tagfeature.jf-tagfeatured,
+.jf-formsuccessstory .jf-textarea .form-group.jf-btns .jf-btn
+
+
+{ border-color: #00cc67; }
