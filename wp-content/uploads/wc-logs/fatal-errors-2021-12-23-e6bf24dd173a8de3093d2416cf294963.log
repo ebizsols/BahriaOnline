@@ -1,0 +1,22 @@
+2021-12-23T14:42:44+00:00 CRITICAL Cannot redeclare filter_created_pages() (previously declared in /home/bahria/public_html/wp-content/plugins/woocommerce/includes/wc-update-functions.php:2281) in /home/bahria/public_html/wp-content/plugins/woocommerce/includes/wc-update-functions.php on line 2281
+
+2021-12-23T14:43:09+00:00 CRITICAL Uncaught Error: Call to undefined function get_field() in /home/bahria/public_html/wp-content/plugins/listingo_vc_shortcodes/vc_custom/shortcodes/sp-articles/skin.php:136
+Stack trace:
+#0 /home/bahria/public_html/wp-includes/shortcodes.php(356): SC_VC_Skin_Article_Posts->shortCodeCallBack(Array, 'onsectetur adip...', 'listingo_vc_art...')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/bahria/public_html/wp-includes/shortcodes.php(228): preg_replace_callback('/\\[(\\[?)(listin...', 'do_shortcode_ta...', '[listingo_vc_ar...')
+#3 /home/bahria/public_html/wp-content/plugins/js_composer/include/helpers/helpers.php(240): do_shortcode('[listingo_vc_ar...')
+#4 /home/bahria/public_html/wp-content/plugins/js_composer/include/templates/shortcodes/vc_column.php(94): wpb_js_remove_wpautop('[listingo_vc_ar...')
+#5 /home/bahria/public_html/wp-content/plugins/js_composer/include/classes/shortcodes/core/class-wpbakeryshortcode.php(271): require('/home/bahria/pu...')
+#6 /home/bahria/public_html/wp-content/plugins/js_c in /home/bahria/public_html/wp-content/plugins/listingo_vc_shortcodes/vc_custom/shortcodes/sp-articles/skin.php on line 136
+
+2021-12-23T14:51:02+00:00 CRITICAL Uncaught Error: Call to undefined function get_field() in /home/bahria/public_html/wp-content/plugins/listingo_vc_shortcodes/vc_custom/shortcodes/sp-articles/skin.php:136
+Stack trace:
+#0 /home/bahria/public_html/wp-includes/shortcodes.php(356): SC_VC_Skin_Article_Posts->shortCodeCallBack(Array, 'onsectetur adip...', 'listingo_vc_art...')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /home/bahria/public_html/wp-includes/shortcodes.php(228): preg_replace_callback('/\\[(\\[?)(listin...', 'do_shortcode_ta...', '[listingo_vc_ar...')
+#3 /home/bahria/public_html/wp-content/plugins/js_composer/include/helpers/helpers.php(240): do_shortcode('[listingo_vc_ar...')
+#4 /home/bahria/public_html/wp-content/plugins/js_composer/include/templates/shortcodes/vc_column.php(94): wpb_js_remove_wpautop('[listingo_vc_ar...')
+#5 /home/bahria/public_html/wp-content/plugins/js_composer/include/classes/shortcodes/core/class-wpbakeryshortcode.php(271): require('/home/bahria/pu...')
+#6 /home/bahria/public_html/wp-content/plugins/js_c in /home/bahria/public_html/wp-content/plugins/listingo_vc_shortcodes/vc_custom/shortcodes/sp-articles/skin.php on line 136
+

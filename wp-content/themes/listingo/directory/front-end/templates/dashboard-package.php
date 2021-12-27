@@ -186,9 +186,8 @@ if (!empty($roles[0]) && $roles[0] === 'customer' ) {
 								  <?php }?>		 
 								  
 							  <?php }?>
-
-							  <?php if(!(apply_filters('listingo_get_user_type', $current_user->ID) === 'customer' ))  {?>
-								<li><span><?php esc_html_e( 'Number of ADS','listingo' );?></span><span><?php echo esc_html($sp_ads_limit);?></span></li>
+							  <?php if ( function_exists('fw_get_db_settings_option') && fw_ext('ads')) {?>
+									  <li><span><?php esc_html_e( 'Number of ADS','listingo' );?></span><span><?php echo esc_html($sp_ads_limit);?></span></li>
 									  <?php if( $sp_ads_limit > 0 ) {?>
 									  	<li><span><?php esc_html_e( 'Featured ADS out of','listingo' );?>&nbsp;<?php echo esc_attr($sp_ads_limit);?></span><span><?php echo esc_html($sp_featured_ads_limit);?></span></li>
 									  <?php } else {?>
@@ -197,9 +196,8 @@ if (!empty($roles[0]) && $roles[0] === 'customer' ) {
 									  } ?>
 									  <li><span><?php esc_html_e( 'Featured ad for','listingo' );?></span><span><?php echo esc_html($sp_featured_ads_duration);?>&nbsp;<?php esc_html_e( 'days','listingo' );?></span></li>
 									  <?php
-							  }
-							?>
-							  
+								  }
+							  ?>
 							  <?php 
 								if (( apply_filters('listingo_get_user_type', $current_user->ID) === 'business' 
 									 || apply_filters('listingo_get_user_type', $current_user->ID) === 'professional' 

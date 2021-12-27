@@ -203,6 +203,17 @@ if (!function_exists('listingo_get_taxonomy_array')) {
 
 }
 
+if (!function_exists('checkParent')) {
+    function checkParent() {
+        global $wpdb;
+
+        $table_name = $wpdb->prefix . "postmeta";
+        $results = $wpdb->get_results("SELECT * FROM $table_name");
+        // echo json_decode($results);
+        return $results;
+    }
+}
+
 /**
  * Get the categories
  *
@@ -211,6 +222,8 @@ if (!function_exists('listingo_get_taxonomy_array')) {
 if (!function_exists('listingo_get_categories')) {
 
     function listingo_get_categories($current = '', $type = '') {
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'postmeta';
         //This gets top layer terms only.  This is done by setting parent to 0.  
 
         $args = array('posts_per_page' => '-1',
@@ -221,10 +234,22 @@ if (!function_exists('listingo_get_categories')) {
 
         $options = '';
         $cust_query = get_posts($args);
+        
 
         if (!empty($cust_query)) {
             $counter = 0;
             foreach ($cust_query as $key => $dir) {
+                $categoryId = $dir->ID;
+                $metaKey = "fw_options";
+	            // $get_posts = new WP_Query;
+                $results = $wpdb->get_results("SELECT * FROM $table_name WHERE `post_id` = $categoryId AND `meta_key` = '$metaKey'");
+
+                foreach ($results as $key => $parent) {
+                    $singleRecord = unserialize($parent->meta_value);
+                }
+
+
+                echo "<pre>"; print_r($singleRecord);
                 $selected = '';
                 if (intval($dir->ID) === intval($current)) {
                     $selected = 'selected';

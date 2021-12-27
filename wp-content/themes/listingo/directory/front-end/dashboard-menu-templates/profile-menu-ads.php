@@ -27,9 +27,7 @@ if (function_exists('fw_get_db_settings_option')) {
 $profile_page = isset($dir_profile_page[0]) ? $dir_profile_page[0] : '';
 $provider_category = listingo_get_provider_category($user_identity); ?>
 	<?php if ( function_exists('fw_get_db_settings_option') && fw_ext('ads')) { ?>
-
-		<?php if(!(apply_filters('listingo_get_user_type', $current_user->ID) === 'customer')) { ?>
-			<li class="tg-privatemessages tg-hasdropdown <?php echo do_shortcode($reference === 'ads' ? 'tg-active tg-openmenu' : ''); ?>">
+		<li class="tg-privatemessages tg-hasdropdown <?php echo do_shortcode($reference === 'ads' ? 'tg-active tg-openmenu' : ''); ?>">
 			<a id="tg-btntoggle" class="tg-btntoggle" href="javascript:">
 				<i class="lnr lnr-pencil"></i>
 				<span><?php esc_html_e('Manage Ads', 'listingo'); ?></span>
@@ -54,6 +52,4 @@ $provider_category = listingo_get_provider_category($user_identity); ?>
 				</li>
 			</ul>
 		</li>
-		<?php } ?>
-		
 	<?php }

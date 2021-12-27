@@ -130,11 +130,11 @@ if (!class_exists('listingo_woocommerace')) {
 				update_post_meta($post_id, 'sp_contact_information', esc_attr($_POST['sp_contact_information']));
 			}
 			
-			// if ( function_exists('fw_get_db_settings_option') && fw_ext('ads')) {
-			// 	update_post_meta($post_id, 'sp_ads_limit', esc_attr($_POST['sp_ads_limit']));
-			// 	update_post_meta($post_id, 'sp_featured_ads_limit', esc_attr($_POST['sp_featured_ads_limit']));
-            //     update_post_meta($post_id, 'sp_featured_ads_duration', esc_attr($_POST['sp_featured_ads_duration']));
-			// }
+			if ( function_exists('fw_get_db_settings_option') && fw_ext('ads')) {
+				update_post_meta($post_id, 'sp_ads_limit', esc_attr($_POST['sp_ads_limit']));
+				update_post_meta($post_id, 'sp_featured_ads_limit', esc_attr($_POST['sp_featured_ads_limit']));
+                update_post_meta($post_id, 'sp_featured_ads_duration', esc_attr($_POST['sp_featured_ads_duration']));
+			}
 			
 			if( !empty( $is_chat ) && ( $is_chat !== 'no' && $is_chat !== 'free_all' ) ){
 				update_post_meta($post_id, 'sp_chat', esc_attr($_POST['sp_chat']));
@@ -401,55 +401,55 @@ if (!class_exists('listingo_woocommerace')) {
                     )
             );
 			
-			// if ( function_exists('fw_get_db_settings_option') && fw_ext('ads')) {
-			// 	woocommerce_wp_text_input(
-			// 			array(
-			// 				'id' => 'sp_ads_limit',
-			// 				'class' => 'sp_ads_limit sp-woo-field',
-			// 				'label' => esc_html__('Number of ads/listings?', 'listingo'),
-			// 				'placeholder' => '',
-			// 				'desc_tip' => 'true',
-			// 				'description' => esc_html__('Add number of ads/listings. Users will be able to submit ads/listings from front-end.', 'listingo'),
-			// 				'type' => 'number',
-			// 				'custom_attributes' => array(
-			// 					'step' => '1',
-			// 					'min' => '0'
-			// 				)
-			// 			)
-			// 	);
+			if ( function_exists('fw_get_db_settings_option') && fw_ext('ads')) {
+				woocommerce_wp_text_input(
+						array(
+							'id' => 'sp_ads_limit',
+							'class' => 'sp_ads_limit sp-woo-field',
+							'label' => esc_html__('Number of ads/listings?', 'listingo'),
+							'placeholder' => '',
+							'desc_tip' => 'true',
+							'description' => esc_html__('Add number of ads/listings. Users will be able to submit ads/listings from front-end.', 'listingo'),
+							'type' => 'number',
+							'custom_attributes' => array(
+								'step' => '1',
+								'min' => '0'
+							)
+						)
+				);
 				
-			// 	woocommerce_wp_text_input(
-			// 			array(
-			// 				'id' => 'sp_featured_ads_limit',
-			// 				'class' => 'sp_featured_ads_limit sp-woo-field',
-			// 				'label' => esc_html__('Number of featured ads/listings?', 'listingo'),
-			// 				'placeholder' => '',
-			// 				'desc_tip' => 'true',
-			// 				'description' => esc_html__('Add number of featured ads/listings. Please note number of featured ads/listings should be less than or equal to total number of ads/listings.', 'listingo'),
-			// 				'type' => 'number',
-			// 				'custom_attributes' => array(
-			// 					'step' => '1',
-			// 					'min' => '0'
-			// 				)
-			// 			)
-			// 	);
-            //     woocommerce_wp_text_input(
-            //             array(
-            //                 'id' => 'sp_featured_ads_duration',
-            //                 'class' => 'sp_featured_ads_duration sp-woo-field',
-            //                 'label' => esc_html__('Featured ad duration', 'listingo'),
-            //                 'placeholder' => '',
-            //                 'desc_tip' => 'true',
-            //                 'description' => esc_html__('Add number of days for featured ads/listings.', 'listingo'),
-            //                 'type' => 'number',
-            //                 'custom_attributes' => array(
-            //                     'step' => '1',
-            //                     'min' => '0'
-            //                 )
-            //             )
-            //     );
+				woocommerce_wp_text_input(
+						array(
+							'id' => 'sp_featured_ads_limit',
+							'class' => 'sp_featured_ads_limit sp-woo-field',
+							'label' => esc_html__('Number of featured ads/listings?', 'listingo'),
+							'placeholder' => '',
+							'desc_tip' => 'true',
+							'description' => esc_html__('Add number of featured ads/listings. Please note number of featured ads/listings should be less than or equal to total number of ads/listings.', 'listingo'),
+							'type' => 'number',
+							'custom_attributes' => array(
+								'step' => '1',
+								'min' => '0'
+							)
+						)
+				);
+                woocommerce_wp_text_input(
+                        array(
+                            'id' => 'sp_featured_ads_duration',
+                            'class' => 'sp_featured_ads_duration sp-woo-field',
+                            'label' => esc_html__('Featured ad duration', 'listingo'),
+                            'placeholder' => '',
+                            'desc_tip' => 'true',
+                            'description' => esc_html__('Add number of days for featured ads/listings.', 'listingo'),
+                            'type' => 'number',
+                            'custom_attributes' => array(
+                                'step' => '1',
+                                'min' => '0'
+                            )
+                        )
+                );
 				
-			// }
+			}
 			
 			if( !empty( $is_chat ) && ( $is_chat !== 'no' && $is_chat !== 'free_all' ) ){
 				woocommerce_wp_select(

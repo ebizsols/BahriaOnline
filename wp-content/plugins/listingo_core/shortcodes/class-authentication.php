@@ -281,6 +281,8 @@ if (!class_exists('SC_Listingo_Authentication')) {
 												</div>
 											</div>
 										</div>
+
+
 										<div class="form-group">
 											<span class="tg-select">
 												<select name="register[category]" class="sp-category">
@@ -289,6 +291,10 @@ if (!class_exists('SC_Listingo_Authentication')) {
 												</select>
 											</span>
 										</div>
+
+
+										<!-- <?php echo "<pre>"; print_r(checkParent()); ?> -->
+										<?php echo "<pre>"; print_r(listingo_get_categories('', 'sp_categories')); ?>
 										<?php if( apply_filters('listingo_dev_manage_fields','true','sub_category') === 'true' ){?>
 											<div class="form-group">
 												<span class="tg-select">

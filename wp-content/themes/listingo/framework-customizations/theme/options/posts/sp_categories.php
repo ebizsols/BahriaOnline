@@ -9,6 +9,20 @@ $options = array(
         'title' => esc_html__('General Settings', 'listingo'),
         'type' => 'box',
         'options' => array(
+            'parent_category' => array(
+                'type' => 'switch',
+                'value' => 'enable',
+                'label' => esc_html__('Parent Category', 'listingo'),
+                'desc' => esc_html__('Please Select the Parent Category', 'listingo'),
+                'left-choice' => array(
+                    'value' => 'business',
+                    'label' => esc_html__('Business', 'listingo'),
+                ),
+                'right-choice' => array(
+                    'value' => 'professional',
+                    'label' => esc_html__('Professional', 'listingo'),
+                ),
+            ),
             'appointments' => array(
                 'type' => 'switch',
                 'value' => 'disable',
@@ -346,3 +360,5 @@ $options = array(
         ),
     )
 );
+
+// echo "<pre>"; print_r($options);

@@ -1,0 +1,126 @@
+2021-12-27T13:57:32+00:00 CRITICAL Uncaught TypeError: strpos(): Argument #1 ($haystack) must be of type string, array given in D:\xampp\htdocs\bahria\wp-includes\shortcodes.php:209
+Stack trace:
+#0 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(209): strpos(Array, '[')
+#1 D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\functions.php(237): do_shortcode(Array)
+#2 D:\xampp\htdocs\bahria\wp-content\plugins\listingo_core\shortcodes\class-authentication.php(290): listingo_get_categories('', 'sp_categories')
+#3 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(356): SC_Listingo_Authentication->listingo_authentication_signup(Array, '', 'listingo_authen...')
+#4 [internal function]: do_shortcode_tag(Array)
+#5 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(228): preg_replace_callback('/\\[(\\[?)(listin...', 'do_shortcode_ta...', '[listingo_authe...')
+#6 D:\xampp\htdocs\bahria\wp-content\plugins\listingo_core\shortcodes\class-authentication.php(76): do_shortcode('[listingo_authe...')
+#7 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(356): SC_Listingo_Authentication->shortCodeCallBack(Array, '', 'listingo_authen...')
+#8 [internal function]: do_shortcode_tag(Array)
+#9 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(228): preg_replace_callback('/\\[(\\[?)(listin...', 'do_shortcode_ta...', '[listingo_authe...')
+#10 D:\xampp\htdocs\bahria\wp-includes\class-wp-hook.php(303): do_shortcode('[listingo_authe...')
+#11 D:\xampp\htdocs\bahria\wp-includes\plugin.php(189): WP_Hook->apply_filters('[listingo_authe...', Array)
+#12 D:\xampp\htdocs\bahria\wp-includes\post-template.php(253): apply_filters('the_content', '[listingo_authe...')
+#13 D:\xampp\htdocs\bahria\wp-content\themes\listingo\page.php(50): the_content()
+#14 D:\xampp\htdocs\bahria\wp-includes\template-loader.php(106): include('D:\\xampp\\htdocs...')
+#15 D:\xampp\htdocs\bahria\wp-blog-header.php(19): require_once('D:\\xampp\\htdocs...')
+#16 D:\xampp\htdocs\bahria\index.php(17): require('D:\\xampp\\htdocs...')
+#17 {main}
+  thrown in D:\xampp\htdocs\bahria\wp-includes\shortcodes.php on line 209
+
+2021-12-27T14:02:16+00:00 CRITICAL Uncaught TypeError: json_decode(): Argument #1 ($json) must be of type string, array given in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\functions.php:237
+Stack trace:
+#0 D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\functions.php(237): json_decode(Array)
+#1 D:\xampp\htdocs\bahria\wp-content\plugins\listingo_core\shortcodes\class-authentication.php(290): listingo_get_categories('', 'sp_categories')
+#2 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(356): SC_Listingo_Authentication->listingo_authentication_signup(Array, '', 'listingo_authen...')
+#3 [internal function]: do_shortcode_tag(Array)
+#4 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(228): preg_replace_callback('/\\[(\\[?)(listin...', 'do_shortcode_ta...', '[listingo_authe...')
+#5 D:\xampp\htdocs\bahria\wp-content\plugins\listingo_core\shortcodes\class-authentication.php(76): do_shortcode('[listingo_authe...')
+#6 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(356): SC_Listingo_Authentication->shortCodeCallBack(Array, '', 'listingo_authen...')
+#7 [internal function]: do_shortcode_tag(Array)
+#8 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(228): preg_replace_callback('/\\[(\\[?)(listin...', 'do_shortcode_ta...', '[listingo_authe...')
+#9 D:\xampp\htdocs\bahria\wp-includes\class-wp-hook.php(303): do_shortcode('[listingo_authe...')
+#10 D:\xampp\htdocs\bahria\wp-includes\plugin.php(189): WP_Hook->apply_filters('[listingo_authe...', Array)
+#11 D:\xampp\htdocs\bahria\wp-includes\post-template.php(253): apply_filters('the_content', '[listingo_authe...')
+#12 D:\xampp\htdocs\bahria\wp-content\themes\listingo\page.php(50): the_content()
+#13 D:\xampp\htdocs\bahria\wp-includes\template-loader.php(106): include('D:\\xampp\\htdocs...')
+#14 D:\xampp\htdocs\bahria\wp-blog-header.php(19): require_once('D:\\xampp\\htdocs...')
+#15 D:\xampp\htdocs\bahria\index.php(17): require('D:\\xampp\\htdocs...')
+#16 {main}
+  thrown in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\functions.php on line 237
+
+2021-12-27T14:16:49+00:00 CRITICAL Uncaught TypeError: json_decode(): Argument #1 ($json) must be of type string, array given in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\functions.php:240
+Stack trace:
+#0 D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\functions.php(240): json_decode(Array)
+#1 D:\xampp\htdocs\bahria\wp-content\plugins\listingo_core\shortcodes\class-authentication.php(290): listingo_get_categories('', 'sp_categories')
+#2 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(356): SC_Listingo_Authentication->listingo_authentication_signup(Array, '', 'listingo_authen...')
+#3 [internal function]: do_shortcode_tag(Array)
+#4 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(228): preg_replace_callback('/\\[(\\[?)(listin...', 'do_shortcode_ta...', '[listingo_authe...')
+#5 D:\xampp\htdocs\bahria\wp-content\plugins\listingo_core\shortcodes\class-authentication.php(76): do_shortcode('[listingo_authe...')
+#6 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(356): SC_Listingo_Authentication->shortCodeCallBack(Array, '', 'listingo_authen...')
+#7 [internal function]: do_shortcode_tag(Array)
+#8 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(228): preg_replace_callback('/\\[(\\[?)(listin...', 'do_shortcode_ta...', '[listingo_authe...')
+#9 D:\xampp\htdocs\bahria\wp-includes\class-wp-hook.php(303): do_shortcode('[listingo_authe...')
+#10 D:\xampp\htdocs\bahria\wp-includes\plugin.php(189): WP_Hook->apply_filters('[listingo_authe...', Array)
+#11 D:\xampp\htdocs\bahria\wp-includes\post-template.php(253): apply_filters('the_content', '[listingo_authe...')
+#12 D:\xampp\htdocs\bahria\wp-content\themes\listingo\page.php(50): the_content()
+#13 D:\xampp\htdocs\bahria\wp-includes\template-loader.php(106): include('D:\\xampp\\htdocs...')
+#14 D:\xampp\htdocs\bahria\wp-blog-header.php(19): require_once('D:\\xampp\\htdocs...')
+#15 D:\xampp\htdocs\bahria\index.php(17): require('D:\\xampp\\htdocs...')
+#16 {main}
+  thrown in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\functions.php on line 240
+
+2021-12-27T14:20:27+00:00 CRITICAL Uncaught TypeError: json_decode(): Argument #1 ($json) must be of type string, array given in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\functions.php:240
+Stack trace:
+#0 D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\functions.php(240): json_decode(Array)
+#1 D:\xampp\htdocs\bahria\wp-content\plugins\listingo_core\shortcodes\class-authentication.php(290): listingo_get_categories('', 'sp_categories')
+#2 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(356): SC_Listingo_Authentication->listingo_authentication_signup(Array, '', 'listingo_authen...')
+#3 [internal function]: do_shortcode_tag(Array)
+#4 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(228): preg_replace_callback('/\\[(\\[?)(listin...', 'do_shortcode_ta...', '[listingo_authe...')
+#5 D:\xampp\htdocs\bahria\wp-content\plugins\listingo_core\shortcodes\class-authentication.php(76): do_shortcode('[listingo_authe...')
+#6 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(356): SC_Listingo_Authentication->shortCodeCallBack(Array, '', 'listingo_authen...')
+#7 [internal function]: do_shortcode_tag(Array)
+#8 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(228): preg_replace_callback('/\\[(\\[?)(listin...', 'do_shortcode_ta...', '[listingo_authe...')
+#9 D:\xampp\htdocs\bahria\wp-includes\class-wp-hook.php(303): do_shortcode('[listingo_authe...')
+#10 D:\xampp\htdocs\bahria\wp-includes\plugin.php(189): WP_Hook->apply_filters('[listingo_authe...', Array)
+#11 D:\xampp\htdocs\bahria\wp-includes\post-template.php(253): apply_filters('the_content', '[listingo_authe...')
+#12 D:\xampp\htdocs\bahria\wp-content\themes\listingo\page.php(50): the_content()
+#13 D:\xampp\htdocs\bahria\wp-includes\template-loader.php(106): include('D:\\xampp\\htdocs...')
+#14 D:\xampp\htdocs\bahria\wp-blog-header.php(19): require_once('D:\\xampp\\htdocs...')
+#15 D:\xampp\htdocs\bahria\index.php(17): require('D:\\xampp\\htdocs...')
+#16 {main}
+  thrown in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\functions.php on line 240
+
+2021-12-27T14:21:02+00:00 CRITICAL Uncaught TypeError: json_decode(): Argument #1 ($json) must be of type string, wpdb given in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\functions.php:240
+Stack trace:
+#0 D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\functions.php(240): json_decode(Object(wpdb))
+#1 D:\xampp\htdocs\bahria\wp-content\plugins\listingo_core\shortcodes\class-authentication.php(290): listingo_get_categories('', 'sp_categories')
+#2 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(356): SC_Listingo_Authentication->listingo_authentication_signup(Array, '', 'listingo_authen...')
+#3 [internal function]: do_shortcode_tag(Array)
+#4 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(228): preg_replace_callback('/\\[(\\[?)(listin...', 'do_shortcode_ta...', '[listingo_authe...')
+#5 D:\xampp\htdocs\bahria\wp-content\plugins\listingo_core\shortcodes\class-authentication.php(76): do_shortcode('[listingo_authe...')
+#6 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(356): SC_Listingo_Authentication->shortCodeCallBack(Array, '', 'listingo_authen...')
+#7 [internal function]: do_shortcode_tag(Array)
+#8 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(228): preg_replace_callback('/\\[(\\[?)(listin...', 'do_shortcode_ta...', '[listingo_authe...')
+#9 D:\xampp\htdocs\bahria\wp-includes\class-wp-hook.php(303): do_shortcode('[listingo_authe...')
+#10 D:\xampp\htdocs\bahria\wp-includes\plugin.php(189): WP_Hook->apply_filters('[listingo_authe...', Array)
+#11 D:\xampp\htdocs\bahria\wp-includes\post-template.php(253): apply_filters('the_content', '[listingo_authe...')
+#12 D:\xampp\htdocs\bahria\wp-content\themes\listingo\page.php(50): the_content()
+#13 D:\xampp\htdocs\bahria\wp-includes\template-loader.php(106): include('D:\\xampp\\htdocs...')
+#14 D:\xampp\htdocs\bahria\wp-blog-header.php(19): require_once('D:\\xampp\\htdocs...')
+#15 D:\xampp\htdocs\bahria\index.php(17): require('D:\\xampp\\htdocs...')
+#16 {main}
+  thrown in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\functions.php on line 240
+
+2021-12-27T14:21:21+00:00 CRITICAL Uncaught Error: Object of class wpdb could not be converted to string in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\functions.php:240
+Stack trace:
+#0 D:\xampp\htdocs\bahria\wp-content\plugins\listingo_core\shortcodes\class-authentication.php(290): listingo_get_categories('', 'sp_categories')
+#1 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(356): SC_Listingo_Authentication->listingo_authentication_signup(Array, '', 'listingo_authen...')
+#2 [internal function]: do_shortcode_tag(Array)
+#3 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(228): preg_replace_callback('/\\[(\\[?)(listin...', 'do_shortcode_ta...', '[listingo_authe...')
+#4 D:\xampp\htdocs\bahria\wp-content\plugins\listingo_core\shortcodes\class-authentication.php(76): do_shortcode('[listingo_authe...')
+#5 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(356): SC_Listingo_Authentication->shortCodeCallBack(Array, '', 'listingo_authen...')
+#6 [internal function]: do_shortcode_tag(Array)
+#7 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(228): preg_replace_callback('/\\[(\\[?)(listin...', 'do_shortcode_ta...', '[listingo_authe...')
+#8 D:\xampp\htdocs\bahria\wp-includes\class-wp-hook.php(303): do_shortcode('[listingo_authe...')
+#9 D:\xampp\htdocs\bahria\wp-includes\plugin.php(189): WP_Hook->apply_filters('[listingo_authe...', Array)
+#10 D:\xampp\htdocs\bahria\wp-includes\post-template.php(253): apply_filters('the_content', '[listingo_authe...')
+#11 D:\xampp\htdocs\bahria\wp-content\themes\listingo\page.php(50): the_content()
+#12 D:\xampp\htdocs\bahria\wp-includes\template-loader.php(106): include('D:\\xampp\\htdocs...')
+#13 D:\xampp\htdocs\bahria\wp-blog-header.php(19): require_once('D:\\xampp\\htdocs...')
+#14 D:\xampp\htdocs\bahria\index.php(17): require('D:\\xampp\\htdocs...')
+#15 {main}
+  thrown in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\functions.php on line 240
+
