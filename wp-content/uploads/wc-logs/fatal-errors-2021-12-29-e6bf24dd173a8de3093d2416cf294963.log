@@ -1,0 +1,20 @@
+2021-12-29T13:01:47+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function esc_attr(), 0 passed in D:\xampp\htdocs\bahria\wp-content\plugins\listingo_core\shortcodes\class-authentication.php on line 286 and exactly 1 expected in D:\xampp\htdocs\bahria\wp-includes\formatting.php:4503
+Stack trace:
+#0 D:\xampp\htdocs\bahria\wp-content\plugins\listingo_core\shortcodes\class-authentication.php(286): esc_attr()
+#1 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(356): SC_Listingo_Authentication->listingo_authentication_signup(Array, '', 'listingo_authen...')
+#2 [internal function]: do_shortcode_tag(Array)
+#3 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(228): preg_replace_callback('/\\[(\\[?)(listin...', 'do_shortcode_ta...', '[listingo_authe...')
+#4 D:\xampp\htdocs\bahria\wp-content\plugins\listingo_core\shortcodes\class-authentication.php(76): do_shortcode('[listingo_authe...')
+#5 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(356): SC_Listingo_Authentication->shortCodeCallBack(Array, '', 'listingo_authen...')
+#6 [internal function]: do_shortcode_tag(Array)
+#7 D:\xampp\htdocs\bahria\wp-includes\shortcodes.php(228): preg_replace_callback('/\\[(\\[?)(listin...', 'do_shortcode_ta...', '[listingo_authe...')
+#8 D:\xampp\htdocs\bahria\wp-includes\class-wp-hook.php(303): do_shortcode('[listingo_authe...')
+#9 D:\xampp\htdocs\bahria\wp-includes\plugin.php(189): WP_Hook->apply_filters('[listingo_authe...', Array)
+#10 D:\xampp\htdocs\bahria\wp-includes\post-template.php(253): apply_filters('the_content', '[listingo_authe...')
+#11 D:\xampp\htdocs\bahria\wp-content\themes\listingo\page.php(50): the_content()
+#12 D:\xampp\htdocs\bahria\wp-includes\template-loader.php(106): include('D:\\xampp\\htdocs...')
+#13 D:\xampp\htdocs\bahria\wp-blog-header.php(19): require_once('D:\\xampp\\htdocs...')
+#14 D:\xampp\htdocs\bahria\index.php(17): require('D:\\xampp\\htdocs...')
+#15 {main}
+  thrown in D:\xampp\htdocs\bahria\wp-includes\formatting.php on line 4503
+

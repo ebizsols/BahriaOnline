@@ -27,7 +27,49 @@ $options = array(
                 'type' => 'switch',
                 'value' => 'disable',
                 'label' => esc_html__('Appointment', 'listingo'),
-                'desc' => esc_html__('Enable/Disable Appointment Button.', 'listingo'),
+                'desc' => esc_html__('Enable/Disable Appointment Button. Providers get registered under this category will be able to make appointments.', 'listingo'),
+                'left-choice' => array(
+                    'value' => 'disable',
+                    'label' => esc_html__('Disable', 'listingo'),
+                ),
+                'right-choice' => array(
+                    'value' => 'enable',
+                    'label' => esc_html__('Enable', 'listingo'),
+                ),
+            ),
+            'real_estate_listing' => array(
+                'type' => 'switch',
+                'value' => 'disable',
+                'label' => esc_html__('Real-Estate Listing', 'listingo'),
+                'desc' => esc_html__('Enable/Disable Real-Estate Listing Button. Providers get registered under this category will be able to create real-estate listings.', 'listingo'),
+                'left-choice' => array(
+                    'value' => 'disable',
+                    'label' => esc_html__('Disable', 'listingo'),
+                ),
+                'right-choice' => array(
+                    'value' => 'enable',
+                    'label' => esc_html__('Enable', 'listingo'),
+                ),
+            ),
+            'delivery_booking' => array(
+                'type' => 'switch',
+                'value' => 'disable',
+                'label' => esc_html__('Delivery Booking', 'listingo'),
+                'desc' => esc_html__('Enable/Disable Delivery Booking Button. Providers get registered under this category will be able to create bookings.', 'listingo'),
+                'left-choice' => array(
+                    'value' => 'disable',
+                    'label' => esc_html__('Disable', 'listingo'),
+                ),
+                'right-choice' => array(
+                    'value' => 'enable',
+                    'label' => esc_html__('Enable', 'listingo'),
+                ),
+            ),
+            'eateries' => array(
+                'type' => 'switch',
+                'value' => 'disable',
+                'label' => esc_html__('Eateries Order', 'listingo'),
+                'desc' => esc_html__('Enable/Disable Eateries Button. Providers get registered under this category will be able to link with eateries.', 'listingo'),
                 'left-choice' => array(
                     'value' => 'disable',
                     'label' => esc_html__('Disable', 'listingo'),

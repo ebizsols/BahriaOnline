@@ -68,9 +68,18 @@ $direction	= listingo_get_location_lat_long();
 												<?php do_action('listingo_get_search_geolocation'); ?>
 											</div>
 										<?php }?>
+
+                                        <?php if (getCategoryPage() == 'business') { ?>
 										<div class="form-group <?php echo esc_attr( $width );?>">
-											<?php do_action('listingo_get_search_category'); ?>
+											<?php do_action('listingoCategoriesForBusiness'); ?>
 										</div>
+                                        <?php } ?>
+
+                                        <?php if (getCategoryPage() == 'professional') {?>
+										<div class="form-group <?php echo esc_attr( $width );?>">
+											<?php do_action('listingoCategoriesForProfessional'); ?>
+										</div>
+                                        <?php } ?>
 										<button class="tg-btn" type="submit"><i class="lnr lnr-magnifier"></i></button>
 									</fieldset>
 								</div>

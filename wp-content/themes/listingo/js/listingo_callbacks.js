@@ -279,7 +279,7 @@ jQuery(document).on('ready', function () {
     jQuery(document).on('change', '.sp-category', function (event) {
         event.preventDefault();
         var _this = jQuery(this);
-        var _id = jQuery('.sp-category').val();
+        var _id = _this.val();
         jQuery('body').append(loader_html);
 
         jQuery.ajax({
@@ -299,6 +299,15 @@ jQuery(document).on('ready', function () {
             }
         });
     });
+
+    // // Jquery Category Toogle
+    // jQuery(document).ready(function() {
+    //     jQuery('input[type="radio"]').on('change', function(){
+    //       var $target = jQuery('input[type="radio"]:checked');
+    //         jQuery('.jsCategory').hide();
+    //         jQuery($target.attr('data-section')).show();
+    //     }).trigger('change');
+    // });
 	
 	//registration categopry multi select
 	jQuery(".sp-register-ms").chosen({placeholder_text_multiple:placeholder_text_multiple});

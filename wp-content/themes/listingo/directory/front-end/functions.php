@@ -203,15 +203,105 @@ if (!function_exists('listingo_get_taxonomy_array')) {
 
 }
 
-if (!function_exists('checkParent')) {
-    function checkParent() {
-        global $wpdb;
 
-        $table_name = $wpdb->prefix . "postmeta";
-        $results = $wpdb->get_results("SELECT * FROM $table_name");
-        // echo json_decode($results);
-        return $results;
+/**
+ * Get the categories
+ *
+ * @return html
+ */
+if (!function_exists('listingoGetCategoriesForBusiness')) {
+
+    function listingoGetCategoriesForBusiness($current = '', $type = '') {
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'postmeta';
+        //This gets top layer terms only.  This is done by setting parent to 0.  
+
+        $args = array('posts_per_page' => '-1',
+            'post_type' => $type,
+            'post_status' => 'publish',
+            'suppress_filters' => false
+        );
+
+        $options = '';
+        $cust_query = get_posts($args);
+
+        if (!empty($cust_query)) {
+            $counter = 0;
+            foreach ($cust_query as $key => $dir) {
+                $categoryId = $dir->ID;
+                $metaKey = "fw_options";
+                $results = $wpdb->get_results("SELECT * FROM $table_name WHERE `post_id` = $categoryId AND `meta_key` = '$metaKey'");
+
+                $mataResult = isset($results['0']->meta_value)? unserialize($results['0']->meta_value) : array();
+                $parentCategory = isset($mataResult['parent_category'])?$mataResult['parent_category']: '';
+
+                if($parentCategory != 'business'){
+                    continue;
+                }
+                
+                $selected = '';
+                if (intval($dir->ID) === intval($current)) {
+                    $selected = 'selected';
+                }
+
+                $options .= '<option ' . $selected . ' value="' . $dir->ID . '">' . get_the_title($dir->ID) . '</option>';
+            }
+        }
+
+        echo do_shortcode($options);
     }
+
+}
+
+/**
+ * Get the categories
+ *
+ * @return html
+ */
+
+if (!function_exists('listingoGetCategoriesForProfessional')) {
+
+    function listingoGetCategoriesForProfessional($current = '', $type = '') {
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'postmeta';
+        //This gets top layer terms only.  This is done by setting parent to 0.  
+
+        $args = array('posts_per_page' => '-1',
+            'post_type' => $type,
+            'post_status' => 'publish',
+            'suppress_filters' => false
+        );
+
+        $options = '';
+        $cust_query = get_posts($args);
+        
+        if (!empty($cust_query)) {
+            $counter = 0;
+            foreach ($cust_query as $key => $dir) {
+                $categoryId = $dir->ID;
+                $metaKey = "fw_options";
+                $results = $wpdb->get_results("SELECT * FROM $table_name WHERE `post_id` = $categoryId AND `meta_key` = '$metaKey'");
+
+                $mataResult = isset($results['0']->meta_value)? unserialize($results['0']->meta_value) : array();
+                $parentCategory = isset($mataResult['parent_category'])?$mataResult['parent_category']: '';
+
+                if($parentCategory != 'professional'){
+                    continue;
+                }
+
+                
+                $selected = '';
+                if (intval($dir->ID) === intval($current)) {
+                    $selected = 'selected';
+                }
+
+                $options .= '<option ' . $selected . ' value="' . $dir->ID . '">' . get_the_title($dir->ID) . '</option>';
+            }
+        }
+
+        echo do_shortcode($options);
+    }
+
 }
 
 /**
@@ -239,17 +329,6 @@ if (!function_exists('listingo_get_categories')) {
         if (!empty($cust_query)) {
             $counter = 0;
             foreach ($cust_query as $key => $dir) {
-                $categoryId = $dir->ID;
-                $metaKey = "fw_options";
-	            // $get_posts = new WP_Query;
-                $results = $wpdb->get_results("SELECT * FROM $table_name WHERE `post_id` = $categoryId AND `meta_key` = '$metaKey'");
-
-                foreach ($results as $key => $parent) {
-                    $singleRecord = unserialize($parent->meta_value);
-                }
-
-
-                echo "<pre>"; print_r($singleRecord);
                 $selected = '';
                 if (intval($dir->ID) === intval($current)) {
                     $selected = 'selected';
@@ -3253,5 +3332,19 @@ if (!function_exists('listingo_get_total_posts_by_user')) {
         );
         $query = new WP_Query($args);
         return $query->post_count;
+    }
+}
+
+if (!function_exists('getCategoryPage')) {
+    function getCategoryPage() {
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'postmeta';
+        $pageId = get_the_ID();
+        $metaKey = "fw_options";
+        $results = $wpdb->get_results("SELECT * FROM $table_name WHERE `post_id` = $pageId AND `meta_key` = '$metaKey'");
+        $mataResult = isset($results['0']->meta_value)? unserialize($results['0']->meta_value) : array();
+        $parentCategory = isset($mataResult['parent_category'])?$mataResult['parent_category']: '';
+
+       return $parentCategory;
     }
 }

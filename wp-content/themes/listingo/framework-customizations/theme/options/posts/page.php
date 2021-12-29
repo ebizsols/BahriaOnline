@@ -127,5 +127,23 @@ $options = array(
 			),
 		)
 	),
+	'provider_categories' => array(
+		'title' =>  esc_html__('Provider Category', 'listingo'),
+		'type' => 'box',
+
+		'options' => array(
+			'parent_category' => array(
+				'label'   => esc_html__('Parent Category', 'listingo'),
+				'desc' => esc_html__('Please select one parent category', 'listingo'),
+				'type' => 'select',
+				'value' => 'full',
+				'choices' => array(
+					'none' => esc_html__('None', 'listingo'),	
+					'business' => esc_html__('Business', 'listingo'),
+					'professional' => esc_html__('Professional', 'listingo'),
+				)
+			)
+		)
+	)
 );
 

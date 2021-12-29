@@ -272,29 +272,35 @@ if (!class_exists('SC_Listingo_Authentication')) {
 											<div class="tg-registeras">
 												<span><?php esc_html_e('Register As', 'listingo_core'); ?>:</span>
 												<div class="tg-radio">
-													<input type="radio" class="register_type" value="business" id="business" name="register[type]" checked>
+													<input type="radio" data-section="#div-1" class="register_type" value="business" id="business" name="register[type]" checked>
 													<label for="business"><?php esc_html_e('Business', 'listingo_core'); ?></label>
 												</div>
 												<div class="tg-radio">
-													<input type="radio" class="register_type" value="professional" id="professional" name="register[type]">
+													<input type="radio" data-section="#div-2" class="register_type" value="professional" id="professional" name="register[type]">
 													<label for="professional"><?php esc_html_e('professional', 'listingo_core'); ?></label>
 												</div>
 											</div>
 										</div>
 
-
-										<div class="form-group">
+										<!-- For Business -->
+										<div id="div-1" class="form-group jsCategory">
 											<span class="tg-select">
 												<select name="register[category]" class="sp-category">
 													<option value=""><?php esc_html_e('Select Category', 'listingo_core'); ?></option>
-													<?php listingo_get_categories('', 'sp_categories'); ?>
+													<?php listingoGetCategoriesForBusiness('','sp_categories'); ?>
 												</select>
 											</span>
 										</div>
 
-
-										<!-- <?php echo "<pre>"; print_r(checkParent()); ?> -->
-										<?php echo "<pre>"; print_r(listingo_get_categories('', 'sp_categories')); ?>
+										<!-- For Professionals -->
+										<div id="div-2" class="form-group jsCategory" style="display:none;">
+											<span class="tg-select">
+												<select name="register[professional]" class="sp-category">
+													<option value=""><?php esc_html_e('Select Category', 'listingo_core'); ?></option>
+													<?php listingoGetCategoriesForProfessional('','sp_categories'); ?>
+												</select>
+											</span>
+										</div>
 										<?php if( apply_filters('listingo_dev_manage_fields','true','sub_category') === 'true' ){?>
 											<div class="form-group">
 												<span class="tg-select">

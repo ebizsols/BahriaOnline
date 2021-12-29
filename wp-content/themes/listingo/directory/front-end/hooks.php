@@ -2658,6 +2658,243 @@ if (!function_exists('listingo_get_header_search_geolocation')) {
     add_action('listingo_get_header_search_geolocation', 'listingo_get_header_search_geolocation');
 }
 
+/**
+ * @get search by Business category feild
+ * @return html
+ */
+if (!function_exists('listingoCategoriesForBusiness')) {
+
+    function listingoCategoriesForBusiness() {
+        global $wpdb;
+		global $wp_query;
+        $table_name = $wpdb->prefix . 'postmeta';
+        ob_start();
+		
+		if( !class_exists( 'ListingoGlobalSettings' ) ) {return;}
+		
+        $args = array('posts_per_page' => '-1',
+            'post_type' => 'sp_categories',
+            'post_status' => 'publish',
+            'suppress_filters' => false
+        );
+        $cust_query = get_posts($args);
+
+		// echo "<pre>"; print_r($cust_query);
+
+		if( is_singular('sp_categories') ){
+			$category = $wp_query->get_queried_object();
+			if( !empty( $category->post_name ) ){
+				$category = $category->post_name;
+			}
+		} else{
+			$category = !empty($_GET['category']) ? esc_attr($_GET['category']) : '';
+		}
+		
+        ?>
+        <span class="tg-select sp-current-category">
+            <select name="category" class="sp-caetgory-select">
+                <option value=""><?php esc_html_e('Category', 'listingo'); ?></option>
+                <?php
+                if (!empty($cust_query)) {
+                    $counter = 0;
+                    $json = array();
+                    foreach ($cust_query as $key => $dir) {
+						$categoryId = $dir->ID;
+						$metaKey = "fw_options";
+						$results = $wpdb->get_results("SELECT * FROM $table_name WHERE `post_id` = $categoryId AND `meta_key` = '$metaKey'");
+
+						$mataResult = isset($results['0']->meta_value)? unserialize($results['0']->meta_value) : array();
+						$parentCategory = isset($mataResult['parent_category'])?$mataResult['parent_category']: '';
+
+						if($parentCategory != 'business'){
+							continue;
+						}
+                        $selected = '';
+                        if ($dir->post_name === $category) {
+                            $selected = 'selected';
+                        }
+
+                        if (isset($dir->ID)) {
+                            $sub_categories = wp_get_post_terms($dir->ID, 'sub_category', array("fields" => "all"));
+
+                            $subarray = array();
+                            if (!empty($sub_categories)) {
+                                foreach ($sub_categories as $key => $sub_category) {
+                                    if (!empty($sub_category)) {
+                                        $subarray[$sub_category->slug] = wp_specialchars_decode( $sub_category->name );
+                                    }
+                                }
+                            }
+
+                            $json[$dir->ID] = $subarray;
+                        }
+
+                        $categories['categories'] = $json;
+
+                        echo '<option data-icon="fa fa-download" ' . $selected . ' data-id="' . $dir->ID . '" data-title="' . $dir->post_title . '"  value="' . $dir->post_name . '">' . $dir->post_title . '</option>';
+                    }
+                }
+                ?>
+
+            </select>
+            <?php
+            wp_add_inline_script('listingo_callbacks', "
+					var SP_Editor = {};
+					SP_Editor.elements = {};
+					window.SP_Editor = SP_Editor;
+					SP_Editor.elements = jQuery.parseJSON( '" . addslashes(json_encode($categories['categories'])) . "' );
+				", 'after');
+            ?>
+            <script type="text/template" id="tmpl-load-subcategories">
+                <#if( !_.isEmpty(data['childrens']) ) {#>
+                <h4><?php esc_html_e('Filter By Sub Categories', 'listingo'); ?></h4>
+                <div class="tg-checkboxgroup data-list">
+                <#
+                var _option	= '';
+                var browser_cats = ListingoGetUrlParameter('sub_categories[]','yes');
+                _.each( data['childrens'] , function(element, index, attr) {
+                var _checked	= '';
+                if(jQuery.inArray(index,browser_cats) !== -1){
+                var _checked	= 'checked';
+                }
+                #>
+                <div class="tg-checkbox sp-load-item">
+                <input type="checkbox" name="sub_categories[]" {{_checked}} value="{{index}}" id="sub_categories-{{index}}">
+                <label for="sub_categories-{{index}}">{{element}}</label>
+                </div>
+                <#	
+                });
+                #>
+                </div>
+                <a href="javascript:;" class="sp-loadMore"><?php esc_html_e('Load More', 'listingo'); ?></a>
+                <# } #>
+            </script>  
+        </span>
+        <?php
+        echo ob_get_clean();
+    }
+
+    add_action('listingoCategoriesForBusiness', 'listingoCategoriesForBusiness');
+}
+
+/**
+ * @get search by Professional category feild
+ * @return html
+ */
+if (!function_exists('listingoCategoriesForProfessional')) {
+
+    function listingoCategoriesForProfessional() {
+        global $wpdb;
+		global $wp_query;
+        $table_name = $wpdb->prefix . 'postmeta';
+        ob_start();
+		
+		if( !class_exists( 'ListingoGlobalSettings' ) ) {return;}
+		
+        $args = array('posts_per_page' => '-1',
+            'post_type' => 'sp_categories',
+            'post_status' => 'publish',
+            'suppress_filters' => false
+        );
+        $cust_query = get_posts($args);
+
+		// echo "<pre>"; print_r($cust_query);
+
+		if( is_singular('sp_categories') ){
+			$category = $wp_query->get_queried_object();
+			if( !empty( $category->post_name ) ){
+				$category = $category->post_name;
+			}
+		} else{
+			$category = !empty($_GET['category']) ? esc_attr($_GET['category']) : '';
+		}
+		
+        ?>
+        <span class="tg-select sp-current-category">
+            <select name="category" class="sp-caetgory-select">
+                <option value=""><?php esc_html_e('Category', 'listingo'); ?></option>
+                <?php
+                if (!empty($cust_query)) {
+                    $counter = 0;
+                    $json = array();
+                    foreach ($cust_query as $key => $dir) {
+						$categoryId = $dir->ID;
+						$metaKey = "fw_options";
+						$results = $wpdb->get_results("SELECT * FROM $table_name WHERE `post_id` = $categoryId AND `meta_key` = '$metaKey'");
+
+						$mataResult = isset($results['0']->meta_value)? unserialize($results['0']->meta_value) : array();
+						$parentCategory = isset($mataResult['parent_category'])?$mataResult['parent_category']: '';
+
+						if($parentCategory != 'professional'){
+							continue;
+						}
+                        $selected = '';
+                        if ($dir->post_name === $category) {
+                            $selected = 'selected';
+                        }
+
+                        if (isset($dir->ID)) {
+                            $sub_categories = wp_get_post_terms($dir->ID, 'sub_category', array("fields" => "all"));
+
+                            $subarray = array();
+                            if (!empty($sub_categories)) {
+                                foreach ($sub_categories as $key => $sub_category) {
+                                    if (!empty($sub_category)) {
+                                        $subarray[$sub_category->slug] = wp_specialchars_decode( $sub_category->name );
+                                    }
+                                }
+                            }
+
+                            $json[$dir->ID] = $subarray;
+                        }
+
+                        $categories['categories'] = $json;
+
+                        echo '<option data-icon="fa fa-download" ' . $selected . ' data-id="' . $dir->ID . '" data-title="' . $dir->post_title . '"  value="' . $dir->post_name . '">' . $dir->post_title . '</option>';
+                    }
+                }
+                ?>
+
+            </select>
+            <?php
+            wp_add_inline_script('listingo_callbacks', "
+					var SP_Editor = {};
+					SP_Editor.elements = {};
+					window.SP_Editor = SP_Editor;
+					SP_Editor.elements = jQuery.parseJSON( '" . addslashes(json_encode($categories['categories'])) . "' );
+				", 'after');
+            ?>
+            <script type="text/template" id="tmpl-load-subcategories">
+                <#if( !_.isEmpty(data['childrens']) ) {#>
+                <h4><?php esc_html_e('Filter By Sub Categories', 'listingo'); ?></h4>
+                <div class="tg-checkboxgroup data-list">
+                <#
+                var _option	= '';
+                var browser_cats = ListingoGetUrlParameter('sub_categories[]','yes');
+                _.each( data['childrens'] , function(element, index, attr) {
+                var _checked	= '';
+                if(jQuery.inArray(index,browser_cats) !== -1){
+                var _checked	= 'checked';
+                }
+                #>
+                <div class="tg-checkbox sp-load-item">
+                <input type="checkbox" name="sub_categories[]" {{_checked}} value="{{index}}" id="sub_categories-{{index}}">
+                <label for="sub_categories-{{index}}">{{element}}</label>
+                </div>
+                <#	
+                });
+                #>
+                </div>
+                <a href="javascript:;" class="sp-loadMore"><?php esc_html_e('Load More', 'listingo'); ?></a>
+                <# } #>
+            </script>  
+        </span>
+        <?php
+        echo ob_get_clean();
+    }
+
+    add_action('listingoCategoriesForProfessional', 'listingoCategoriesForProfessional');
+}
 
 /**
  * @get search by category feild
