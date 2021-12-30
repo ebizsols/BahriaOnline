@@ -1208,6 +1208,57 @@ if (!function_exists('listingo_remove_wishlist')) {
 }
 
 /**
+ * Get the Categories
+ *
+ * @return html
+ */
+if (!function_exists('getAjaxCategories')) {
+    function getAjaxCategories($current = '') {
+		global $wpdb;
+        $table_name = $wpdb->prefix . 'postmeta';
+		$categoryValue = $_POST['category'];
+
+
+        $args = array('posts_per_page' => '-1',
+            'post_type' => 'sp_categories',
+            'post_status' => 'publish',
+            'suppress_filters' => false
+        );
+
+		
+        $options = '';
+        $cust_query = get_posts($args);
+
+        if (!empty($cust_query)) {
+            $counter = 0;
+            foreach ($cust_query as $key => $dir) {
+                $categoryId = $dir->ID;
+                $metaKey = "fw_options";
+                $results = $wpdb->get_results("SELECT * FROM $table_name WHERE `post_id` = $categoryId AND `meta_key` = '$metaKey'");
+
+                $mataResult = isset($results['0']->meta_value)? unserialize($results['0']->meta_value) : array();
+                $parentCategory = isset($mataResult['parent_category'])?$mataResult['parent_category']: '';
+
+                if($parentCategory != $categoryValue){
+                    continue;
+                }
+                
+                $selected = '';
+                if (intval($dir->ID) === intval($current)) {
+                    $selected = 'selected';
+                }
+
+                $options .= '<option ' . $selected . ' value="' . $dir->ID . '">' . get_the_title($dir->ID) . '</option>';
+            }
+        }
+        echo json_encode(array('options'=>$options));
+		die;
+	}
+	add_action('wp_ajax_getAjaxCategories', 'getAjaxCategories');
+    add_action('wp_ajax_nopriv_getAjaxCategories', 'getAjaxCategories');
+}
+
+/**
  * Get the terms by post ID
  *
  * @return html

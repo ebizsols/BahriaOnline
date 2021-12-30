@@ -1,0 +1,44 @@
+2021-12-30T09:16:43+00:00 CRITICAL Uncaught Error: Call to undefined method Listingo_Profile_Menu::listingo_profile_menu_link() in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\dashboard-menu-templates\profile-menu-insights.php:36
+Stack trace:
+#0 D:\xampp\htdocs\bahria\wp-includes\template.php(772): require()
+#1 D:\xampp\htdocs\bahria\wp-includes\template.php(716): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\bahria\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\class-dashboard-menu.php(125): get_template_part('directory/front...', 'insights')
+#4 D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\class-dashboard-menu.php(61): Listingo_Profile_Menu::listingo_profile_menu('dashboard-menu-...')
+#5 D:\xampp\htdocs\bahria\wp-content\themes\listingo\includes\class-headers.php(811): Listingo_Profile_Menu::listingo_profile_menu_top()
+#6 D:\xampp\htdocs\bahria\wp-content\themes\listingo\includes\class-headers.php(679): Listingo_Prepare_Headers->listingo_prepare_registration()
+#7 D:\xampp\htdocs\bahria\wp-content\themes\listingo\includes\class-headers.php(122): Listingo_Prepare_Headers->listingo_do_process_header_v5()
+#8 D:\xampp\htdocs\bahria\wp-includes\class-wp-hook.php(303): Listingo_Prepare_Headers->listingo_do_process_headers('')
+#9 D:\xampp\htdocs\bahria\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#10 D:\xampp\htdocs\bahria\wp-includes\plugin.php(470): WP_Hook->do_action(Array)
+#11 D:\xampp\htdocs\bahria\wp-content\themes\listingo\header.php(40): do_action('listingo_do_pro...')
+#12 D:\xampp\htdocs\bahria\wp-includes\template.php(770): require_once('D:\\xampp\\htdocs...')
+#13 D:\xampp\htdocs\bahria\wp-includes\template.php(716): load_template('D:\\xampp\\htdocs...', true, Array)
+#14 D:\xampp\htdocs\bahria\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#15 D:\xampp\htdocs\bahria\wp-content\themes\listingo\page.php(11): get_header()
+#16 D:\xampp\htdocs\bahria\wp-includes\template-loader.php(106): include('D:\\xampp\\htdocs...')
+#17 D:\xampp\htdocs\bahria\wp-blog-header.php(19): require_once('D:\\xampp\\htdocs...')
+#18 D:\xampp\htdocs\bahria\index.php(17): require('D:\\xampp\\htdocs...')
+#19 {main}
+  thrown in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\dashboard-menu-templates\profile-menu-insights.php on line 36
+
+2021-12-30T15:08:52+00:00 CRITICAL Uncaught TypeError: array_push(): Argument #1 ($array) must be of type array, string given in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\hooks.php:1256
+Stack trace:
+#0 D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\hooks.php(1256): array_push('{"selectCategor...', '{"options":"<op...')
+#1 D:\xampp\htdocs\bahria\wp-includes\class-wp-hook.php(303): getAjaxCategories('')
+#2 D:\xampp\htdocs\bahria\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#3 D:\xampp\htdocs\bahria\wp-includes\plugin.php(470): WP_Hook->do_action(Array)
+#4 D:\xampp\htdocs\bahria\wp-admin\admin-ajax.php(202): do_action('wp_ajax_nopriv_...')
+#5 {main}
+  thrown in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\hooks.php on line 1256
+
+2021-12-30T15:14:35+00:00 CRITICAL Uncaught TypeError: array_merge(): Argument #1 must be of type array, string given in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\hooks.php:1254
+Stack trace:
+#0 D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\hooks.php(1254): array_merge('{"selectCategor...', '{"options":"<op...')
+#1 D:\xampp\htdocs\bahria\wp-includes\class-wp-hook.php(303): getAjaxCategories('')
+#2 D:\xampp\htdocs\bahria\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#3 D:\xampp\htdocs\bahria\wp-includes\plugin.php(470): WP_Hook->do_action(Array)
+#4 D:\xampp\htdocs\bahria\wp-admin\admin-ajax.php(202): do_action('wp_ajax_nopriv_...')
+#5 {main}
+  thrown in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\hooks.php on line 1254
+

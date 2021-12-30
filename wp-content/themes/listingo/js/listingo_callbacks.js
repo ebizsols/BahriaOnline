@@ -301,14 +301,24 @@ jQuery(document).on('ready', function () {
     });
 
     // // Jquery Category Toogle
-    // jQuery(document).ready(function() {
-    //     jQuery('input[type="radio"]').on('change', function(){
-    //       var $target = jQuery('input[type="radio"]:checked');
-    //         jQuery('.jsCategory').hide();
-    //         jQuery($target.attr('data-section')).show();
-    //     }).trigger('change');
-    // });
-	
+    jQuery(document).ready(function() {
+        jQuery('.register_type').on('change', function() {
+          var _data = jQuery(this).val();
+            jQuery('body').append(loader_html);
+  
+          jQuery.ajax({
+            type: "POST",
+            url: scripts_vars.ajaxurl,
+            data: 'category=' + _data + '&action=getAjaxCategories',
+            dataType: "json",
+            success: function(response) {
+                jQuery('body').find('.provider-site-wrap').remove();
+                jQuery('.sp-category').html(response.options);
+            }
+          });
+        })
+      });	
+
 	//registration categopry multi select
 	jQuery(".sp-register-ms").chosen({placeholder_text_multiple:placeholder_text_multiple});
 	

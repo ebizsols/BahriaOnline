@@ -125,7 +125,6 @@ if (!function_exists('listingo_user_registration')) {
             } else {
 
                 $required_fields = array(
-					// 'professional' => esc_html__('Please select professional category', 'listingo_core'),
                     'first_name' => esc_html__('First name is required.', 'listingo_core'),
                     'last_name' => esc_html__('Last name is required.', 'listingo_core'),
                     'gender' => esc_html__('Gender is required.', 'listingo_core'),
@@ -134,7 +133,7 @@ if (!function_exists('listingo_user_registration')) {
             }
 
             $data_array = array(
-                // 'category' => esc_html__('', 'listingo_core'),
+                'category' => esc_html__('Category is required', 'listingo_core'),
                 'sub_category' => esc_html__('Sub category is required.', 'listingo_core'),
 				'username' => esc_html__('Username is required.', 'listingo_core'),
                 'phone' => esc_html__('Phone number is required.', 'listingo_core'),
@@ -284,9 +283,6 @@ if (!function_exists('listingo_user_registration')) {
             update_user_meta($user_identity, 'phone', esc_attr($phone));
             update_user_meta($user_identity, 'email', esc_attr($email));
             update_user_meta($user_identity, 'category', esc_attr($category));
-			
-            update_user_meta($user_identity, 'professional', esc_attr($professional));
-
             update_user_meta($user_identity, 'sub_category', $sub_category);
             update_user_meta($user_identity, 'activation_status', 'active');
 			update_user_meta($user_identity, 'subscription_featured_expiry', 0);
@@ -297,7 +293,6 @@ if (!function_exists('listingo_user_registration')) {
 			update_user_meta($user_identity, 'longitude', $dir_longitude);
 			
 			do_action('listingo_update_category_search',$category,'category',$user_identity);
-			do_action('listingo_update_category_search',$professional,'professional',$user_identity);
 			do_action('listingo_update_category_search',$sub_category,'sub_category',$user_identity);
 			
 			//Privacy settings
@@ -1167,12 +1162,10 @@ if (!function_exists('listingo_complete_profile')) {
 			$sub_category	= !empty( $sub_category ) ? $sub_category : array();
 			
 			update_user_meta($user_identity, 'category', esc_attr($category));
-			update_user_meta($user_identity, 'professional', esc_attr($professional));
             update_user_meta($user_identity, 'sub_category', $sub_category);
 			update_user_meta($user_identity, 'subscription_featured_expiry', 0);
 			
 			do_action('listingo_update_category_search',$category,'category',$user_identity);
-			do_action('listingo_update_category_search',$professional,'professional',$user_identity);
 			do_action('listingo_update_category_search',$sub_category,'sub_category',$user_identity);
 			
 			//Privacy settings

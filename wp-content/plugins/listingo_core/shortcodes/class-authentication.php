@@ -291,16 +291,6 @@ if (!class_exists('SC_Listingo_Authentication')) {
 												</select>
 											</span>
 										</div>
-
-										<!-- For Professionals -->
-										<div id="div-2" class="form-group jsCategory" style="display:none;">
-											<span class="tg-select">
-												<select name="register[professional]" class="sp-category">
-													<option value=""><?php esc_html_e('Select Category', 'listingo_core'); ?></option>
-													<?php listingoGetCategoriesForProfessional('','sp_categories'); ?>
-												</select>
-											</span>
-										</div>
 										<?php if( apply_filters('listingo_dev_manage_fields','true','sub_category') === 'true' ){?>
 											<div class="form-group">
 												<span class="tg-select">

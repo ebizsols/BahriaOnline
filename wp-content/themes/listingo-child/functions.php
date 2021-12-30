@@ -22,18 +22,4 @@ function listingo_theme_enqueue_styles() {
     wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css', array('bootstrap','chosen'),$parent_theme_version->get('Version'));
 }
 
-function myCustomScript() { ?>
-  <script type="text/javascript">
-  jQuery( document ).ready(function() {
-      jQuery('input[type="radio"]').on('change', function(){
-        var $target = jQuery('input[type="radio"]:checked');
-          jQuery(".jsCategory").hide();
-          jQuery($target.attr('data-section')).show();
-      })
-  });
-  </script>
-  <?php
-}
-
 add_action( 'wp_enqueue_scripts', 'listingo_theme_enqueue_styles' );
-add_action( 'wp_footer', 'myCustomScript' );
