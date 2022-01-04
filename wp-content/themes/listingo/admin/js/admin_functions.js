@@ -1018,10 +1018,13 @@ jQuery(document).ready(function(e) {
 		if( select_pack !== null && select_pack === 'customer' ){
 			jQuery('.sp-woo-field').parents('.form-field').show();
 			jQuery('.sp_provider').parents('.form-field').hide();
-		}else if( select_pack !== null && select_pack === 'provider' ){
+		}else if( select_pack !== null && select_pack === 'business' ){
 			jQuery('.sp-woo-field').parents('.form-field').show();
 			jQuery('.sp_provider').parents('.form-field').show();
-		} else{
+		}else if( select_pack !== null && select_pack === 'professional' ){
+			jQuery('.sp-woo-field').parents('.form-field').show();
+			jQuery('.sp_provider').parents('.form-field').show();
+		}else{
 			jQuery('.sp-woo-field').parents('.form-field').hide();
 		}
 	}
@@ -1034,7 +1037,10 @@ jQuery(document).ready(function(e) {
 			jQuery('.sp-woo-field').parents('.form-field').show();
 			jQuery('.sp_provider').parents('.form-field').hide();
 			
-		} else if( _current !== null && _current === 'provider' ){
+		} else if( _current !== null && _current === 'business' ){
+			jQuery('.sp-woo-field').parents('.form-field').show();
+			jQuery('.sp_provider').parents('.form-field').show();
+		} else if( _current !== null && _current === 'professional' ){
 			jQuery('.sp-woo-field').parents('.form-field').show();
 			jQuery('.sp_provider').parents('.form-field').show();
 		} else{

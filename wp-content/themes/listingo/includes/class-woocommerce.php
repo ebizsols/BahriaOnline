@@ -114,6 +114,9 @@ if (!class_exists('listingo_woocommerace')) {
 			}
 			
             update_post_meta($post_id, 'sp_appointments', esc_attr($_POST['sp_appointments']));
+            update_post_meta($post_id, 'sp_bookings', esc_attr($_POST['sp_bookings']));
+            update_post_meta($post_id, 'sp_real_estate', esc_attr($_POST['sp_real_estate']));
+            update_post_meta($post_id, 'sp_eateries', esc_attr($_POST['sp_eateries']));
             update_post_meta($post_id, 'sp_banner', esc_attr($_POST['sp_banner']));
             update_post_meta($post_id, 'sp_insurance', esc_attr($_POST['sp_insurance']));
             update_post_meta($post_id, 'sp_favorites', esc_attr($_POST['sp_favorites']));
@@ -166,7 +169,8 @@ if (!class_exists('listingo_woocommerace')) {
                         'options' => array(
                             '' => esc_html__('Package Type', 'listingo'),
                             'customer' => esc_html__('For Customers ( Visitors )', 'listingo'),
-                            'provider' => esc_html__('For Providers ( Business/Professional )', 'listingo'),
+                            'business' => esc_html__('For Business ( Providers )', 'listingo'),
+                            'professional' => esc_html__('For Professionals ( Providers )', 'listingo'),
                         )
                     )
             );
@@ -246,6 +250,42 @@ if (!class_exists('listingo_woocommerace')) {
                         )
                     )
             );
+
+            woocommerce_wp_select(
+                array(
+                    'id' => 'sp_bookings',
+                    'class' => 'sp_bookings  sp_provider sp-woo-field',
+                    'label' => esc_html__('Bookings/Outlets included?', 'listingo'),
+                    'options' => array(
+                        'no' => esc_html__('No', 'listingo'),
+                        'yes' => esc_html__('Yes', 'listingo'),
+                    )
+                )
+           );
+
+           woocommerce_wp_select(
+            array(
+                'id' => 'sp_real_estate',
+                'class' => 'sp_real_estate  sp_provider sp-woo-field',
+                'label' => esc_html__('Real-Estate included?', 'listingo'),
+                'options' => array(
+                    'no' => esc_html__('No', 'listingo'),
+                    'yes' => esc_html__('Yes', 'listingo'),
+                )
+            )
+        );
+
+        woocommerce_wp_select(
+            array(
+                'id' => 'sp_eateries',
+                'class' => 'sp_eateries  sp_provider sp-woo-field',
+                'label' => esc_html__('Eateries included?', 'listingo'),
+                'options' => array(
+                    'no' => esc_html__('No', 'listingo'),
+                    'yes' => esc_html__('Yes', 'listingo'),
+                )
+            )
+        );
 
             woocommerce_wp_select(
                     array(

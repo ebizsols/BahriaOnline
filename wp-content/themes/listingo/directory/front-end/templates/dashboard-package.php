@@ -18,11 +18,18 @@ $package_counter	= !empty( $package_expiry ) ? date( 'M d, Y H:i:s', $package_ex
 $provider_category  = listingo_get_provider_category($current_user->ID);
 $package_title		= !empty( $package_id ) ? get_the_title($package_id) : esc_html__('NILL','listingo');
 $roles 				= $current_user->roles;
-$package_type		= 'provider';
 
-if (!empty($roles[0]) && $roles[0] === 'customer' ) {
+if (!empty($roles[0]) && $roles[0] === 'business' ) {
+	$package_type	= 'business';
+} elseif (!empty($roles[0]) && $roles[0] === 'professional' ) {
+	$package_type	= 'professional';
+} else {
 	$package_type	= 'customer';
 }
+
+// if (!empty($package_type) && $package_type === 'business' || $package_type === 'professional') {
+// 	echo "<pre>"; print_r("Business/Professional");
+// }
 ?>
 <div class="tg-formtheme">
   <fieldset>
@@ -64,7 +71,7 @@ if (!empty($roles[0]) && $roles[0] === 'customer' ) {
 		  </div>
 		  <div class="tg-packagesbox">
 			<div class="tg-pkgplans tg-pkgplansvtwo">
-			  <div class="row">
+			  <div class="row dashboard-package">
 				<?php
 					$args = array(
 						'post_type' => 'product',
@@ -106,9 +113,14 @@ if (!empty($roles[0]) && $roles[0] === 'customer' ) {
 								$sp_featured_ads_duration = !empty( $sp_featured_ads_duration ) ? $sp_featured_ads_duration : 0;
 							}
 						
-							if (!empty($package_type) && $package_type === 'provider' ) {
+							if (!empty($package_type) && $package_type === 'business' || $package_type === 'professional') {
 								$sp_featured= get_post_meta( $product->get_id(), 'sp_featured', true );
 								$sp_appointments = get_post_meta( $product->get_id(), 'sp_appointments', true );
+
+								$sp_bookings = get_post_meta( $product->get_id(), 'sp_bookings', true );
+								$sp_real_estate = get_post_meta( $product->get_id(), 'sp_real_estate', true );
+								$sp_eateries = get_post_meta( $product->get_id(), 'sp_eateries', true );
+
 								$sp_banner = get_post_meta( $product->get_id(), 'sp_banner', true );
 								$sp_insurance = get_post_meta( $product->get_id(), 'sp_insurance', true );
 								$sp_teams = get_post_meta( $product->get_id(), 'sp_teams', true );
@@ -144,12 +156,24 @@ if (!empty($roles[0]) && $roles[0] === 'customer' ) {
 							  	<li><span><?php esc_html_e( 'Favorites Listings','listingo' );?></span><span><?php echo listingo_is_feature_support($sp_favorites);?></span></li>
 							  <?php }?>
 							  
-							  <?php if (!empty($package_type) && $package_type === 'provider' ) {?>
+							  <?php if (!empty($package_type) && $package_type === 'business' || $package_type === 'professional') {?>
 								  <li><span><?php esc_html_e( 'Featured listing for','listingo' );?></span><span><?php echo intval($sp_featured);?>&nbsp;<?php esc_html_e( 'days','listingo' );?></span></li>
 								  
 								  <?php if( apply_filters('listingo_is_feature_allowed', $provider_category, 'appointments') === true ){?>
 								  	<li><span><?php esc_html_e( 'Appointments','listingo' );?></span><span><?php echo listingo_is_feature_support($sp_appointments);?></span></li>
 								  <?php }?>
+
+								  <!-- New Code -->
+								  <?php if( apply_filters('listingo_is_feature_allowed', $provider_category, 'real_estate_listing') === true ){?>
+								  	<li><span><?php esc_html_e( 'Bookings/Outlets','listingo' );?></span><span><?php echo listingo_is_feature_support($sp_bookings);?></span></li>
+								  <?php }?>
+								  <?php if( apply_filters('listingo_is_feature_allowed', $provider_category, 'delivery_booking') === true ){?>
+								  	<li><span><?php esc_html_e( 'Real-Estate Listings','listingo' );?></span><span><?php echo listingo_is_feature_support($sp_real_estate);?></span></li>
+								  <?php }?>
+								  <?php if( apply_filters('listingo_is_feature_allowed', $provider_category, 'eateries') === true ){?>
+								  	<li><span><?php esc_html_e( 'Eateries Orders','listingo' );?></span><span><?php echo listingo_is_feature_support($sp_eateries);?></span></li>
+								  <?php }?>
+								  <!-- New Code -->
 								  
 								  <li><span><?php esc_html_e( 'Profile Banner','listingo' );?></span><span><?php echo listingo_is_feature_support($sp_banner);?></span></li>
 								  
