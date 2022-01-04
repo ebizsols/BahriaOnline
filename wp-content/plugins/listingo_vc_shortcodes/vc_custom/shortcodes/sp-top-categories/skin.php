@@ -69,7 +69,7 @@ if (!class_exists('SC_VC_Skin_Listingo_Top_Categories')) {
                                     <span><?php echo esc_attr($section_subheading); ?></span>
                                 <?php } ?>
                                 <?php if (!empty($section_heading)) { ?>
-                                    <h2><?php echo esc_attr($section_heading); ?></h2>
+                                    <h2>Top Categories</h2>
                                 <?php } ?>
                             </div>
                         </div>

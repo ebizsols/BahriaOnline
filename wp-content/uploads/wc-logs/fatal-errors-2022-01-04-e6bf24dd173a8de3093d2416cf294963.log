@@ -1,0 +1,24 @@
+2022-01-04T12:41:49+00:00 CRITICAL Uncaught Error: Value of type null is not callable in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\search-templates\search-list.php:145
+Stack trace:
+#0 D:\xampp\htdocs\bahria\wp-includes\template.php(772): require()
+#1 D:\xampp\htdocs\bahria\wp-includes\template.php(716): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\bahria\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\search.php(595): get_template_part('directory/front...', 'list', Array)
+#4 D:\xampp\htdocs\bahria\wp-includes\template-loader.php(106): include('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\bahria\wp-blog-header.php(19): require_once('D:\\xampp\\htdocs...')
+#6 D:\xampp\htdocs\bahria\index.php(17): require('D:\\xampp\\htdocs...')
+#7 {main}
+  thrown in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\search-templates\search-list.php on line 145
+
+2022-01-04T12:42:34+00:00 CRITICAL Uncaught Error: Value of type null is not callable in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\search-templates\search-list.php:145
+Stack trace:
+#0 D:\xampp\htdocs\bahria\wp-includes\template.php(772): require()
+#1 D:\xampp\htdocs\bahria\wp-includes\template.php(716): load_template('D:\\xampp\\htdocs...', false, Array)
+#2 D:\xampp\htdocs\bahria\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\search.php(595): get_template_part('directory/front...', 'list', Array)
+#4 D:\xampp\htdocs\bahria\wp-includes\template-loader.php(106): include('D:\\xampp\\htdocs...')
+#5 D:\xampp\htdocs\bahria\wp-blog-header.php(19): require_once('D:\\xampp\\htdocs...')
+#6 D:\xampp\htdocs\bahria\index.php(17): require('D:\\xampp\\htdocs...')
+#7 {main}
+  thrown in D:\xampp\htdocs\bahria\wp-content\themes\listingo\directory\front-end\search-templates\search-list.php on line 145
+

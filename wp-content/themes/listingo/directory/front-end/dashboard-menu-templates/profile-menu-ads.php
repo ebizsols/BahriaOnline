@@ -14,6 +14,7 @@ global $current_user, $wp_roles, $userdata, $post;
 $reference 		 = (isset($_GET['ref']) && $_GET['ref'] <> '') ? $_GET['ref'] : '';
 $mode 			 = (isset($_GET['mode']) && $_GET['mode'] <> '') ? $_GET['mode'] : '';
 $user_identity 	 = $current_user->ID;
+$roles 		     = $current_user->roles;
 
 $url_identity = $user_identity;
 if (isset($_GET['identity']) && !empty($_GET['identity'])) {
@@ -27,6 +28,7 @@ if (function_exists('fw_get_db_settings_option')) {
 $profile_page = isset($dir_profile_page[0]) ? $dir_profile_page[0] : '';
 $provider_category = listingo_get_provider_category($user_identity); ?>
 	<?php if ( function_exists('fw_get_db_settings_option') && fw_ext('ads')) { ?>
+		<?php if (!empty($roles[0]) && $roles[0] !== 'customer') { ?>
 		<li class="tg-privatemessages tg-hasdropdown <?php echo do_shortcode($reference === 'ads' ? 'tg-active tg-openmenu' : ''); ?>">
 			<a id="tg-btntoggle" class="tg-btntoggle" href="javascript:">
 				<i class="lnr lnr-pencil"></i>
@@ -52,4 +54,5 @@ $provider_category = listingo_get_provider_category($user_identity); ?>
 				</li>
 			</ul>
 		</li>
-	<?php }
+	<?php } ?>
+	<?php } ?>

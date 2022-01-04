@@ -8,7 +8,7 @@
  * @link      http://themographics.com/
  * @since 1.0
  */
-global $paged, $wp_query;
+global $current_user, $paged, $wp_query;
 
 get_header();
 
@@ -138,6 +138,10 @@ $direction	= listingo_get_location_lat_long();
                                             }
 
                                             foreach ($user_query as $user) {
+                                                $userRoles = $user->roles[0];
+                                                if (getCategoryPage() != $userRoles) {
+                                                    continue;
+                                                }
                                                 $username = listingo_get_username($user->ID);
                                                 $useremail = $user->user_email;
                                                 $userphone = $user->phone;

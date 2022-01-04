@@ -27,9 +27,6 @@ if (!empty($roles[0]) && $roles[0] === 'business' ) {
 	$package_type	= 'customer';
 }
 
-// if (!empty($package_type) && $package_type === 'business' || $package_type === 'professional') {
-// 	echo "<pre>"; print_r("Business/Professional");
-// }
 ?>
 <div class="tg-formtheme">
   <fieldset>
