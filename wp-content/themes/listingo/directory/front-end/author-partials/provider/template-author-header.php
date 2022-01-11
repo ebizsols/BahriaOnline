@@ -39,7 +39,7 @@ $auth_page	= listingo_get_login_registration_page_uri();
 <div class="tg-detailpagehead sp-provider-wrap">
 	<figure class="parallax-window" data-appear-top-offset= "600" data-parallax="scroll" data-position="center 0" data-image-src="<?php echo esc_url($user_banner); ?>">
 		<figcaption>
-			<div class="container">
+		<div class="container">
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<div class="tg-detailpageheadcontent">
@@ -61,20 +61,47 @@ $auth_page	= listingo_get_login_registration_page_uri();
 								<?php do_action('sp_get_rating_and_votes', $author_profile->ID, 'echo'); ?>
 							</div>
 							<?php if (is_user_logged_in()) {
-								if( apply_filters('listingo_is_feature_allowed', $provider_category, 'appointments') === true
+								if (
+									apply_filters('listingo_is_feature_allowed', $provider_category, 'appointments') === true
 									&& apply_filters('listingo_is_setting_enabled', $author_profile->ID, 'subscription_appointments') === true
 									&& $current_user->ID != $author_profile->ID
-									&& ( isset( $db_privacy['profile_appointment'] ) && $db_privacy['profile_appointment'] === 'on' )
-								){
-								?>
+									&& (isset($db_privacy['profile_appointment']) && $db_privacy['profile_appointment'] === 'on')
+								) {
+							?>
 									<button class="tg-btn" type="buttton" data-toggle="modal" data-target=".tg-appointmentModal"><?php esc_html_e('Make Appointment', 'listingo'); ?></button>
-								<?php }?>
-							<?php } else if( apply_filters('listingo_is_feature_allowed', $provider_category, 'appointments') === true 
-								&& apply_filters('listingo_is_setting_enabled', $author_profile->ID,'subscription_appointments') === true
-								&& ( isset( $db_privacy['profile_appointment'] ) && $db_privacy['profile_appointment'] === 'on' )
-								&& !empty($auth_page) ) {?>
+								<?php } ?>
+							<?php } else if (
+								apply_filters('listingo_is_feature_allowed', $provider_category, 'appointments') === true
+								&& apply_filters('listingo_is_setting_enabled', $author_profile->ID, 'subscription_appointments') === true
+								&& (isset($db_privacy['profile_appointment']) && $db_privacy['profile_appointment'] === 'on')
+								&& !empty($auth_page)
+							) { ?>
 								<a class="tg-btn" href="<?php echo esc_url($auth_page); ?>?redirect=<?php echo esc_url(get_author_posts_url($author_profile->ID)); ?>"><?php esc_html_e('Make an appointment', 'listingo'); ?></a>
-							<?php }?>
+							<?php } ?>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<?php 
+							$currentID = get_current_user_id();
+							$currentUser = get_user_by('id', $currentID );
+							// echo "<pre>"; print_r($currentUser);
+							?>
+							<!-- New Code -->
+							<?php if (apply_filters('listingo_is_feature_allowed', $provider_category, 'delivery_booking') === true) { ?>
+								<a href="https://bookings.bahria.online/" target="_blank">
+									<button class="tg-btn getUserButton" type="button"><?php esc_html_e('Bookings', 'listingo'); ?></button>
+								</a>
+							<?php } ?>
+							<?php if (apply_filters('listingo_is_feature_allowed', $provider_category, 'real_estate_listing') === true) { ?>
+								<a href="https://realty.bahria.online/" target="_blank">
+									<button class="tg-btn getUserButton" type="button"><?php esc_html_e('Real Estate', 'listingo'); ?></button>
+								</a>
+							<?php } ?>
+							<?php if (apply_filters('listingo_is_feature_allowed', $provider_category, 'eateries') === true) { ?>
+								<a href="https://www.eateries.online/" target="_blank">
+									<button class="tg-btn getUserButton" type="button"><?php esc_html_e('Eateries', 'listingo'); ?></button>
+								</a>
+							<?php } ?>
+							<!-- New Code -->
 						</div>
 					</div>
 				</div>

@@ -1212,6 +1212,26 @@ if (!function_exists('listingo_remove_wishlist')) {
  *
  * @return html
  */
+
+if (!function_exists('getLinkingUser')) {
+	function getLinkingUser() {
+	   global $current_user;
+	   // $currentUser = $current_user->ID;
+	   // $response = wp_remote_get('http://localhost:1000/bahria/wp-json/wp/v2/users');
+	   // $users = json_decode(wp_remote_retrieve_body($response));
+	   // echo "<pre>"; print_r($currentUser);
+	   echo json_encode($current_user);
+	   die();
+	}
+   add_action('wp_ajax_getLinkingUser', 'getLinkingUser');
+   add_action('wp_ajax_nopriv_getLinkingUser', 'getLinkingUser');
+}
+
+/**
+ * Get the Categories
+ *
+ * @return html
+ */
 if (!function_exists('getAjaxCategories')) {
     function getAjaxCategories($current = '') {
 		global $wpdb;

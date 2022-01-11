@@ -300,6 +300,51 @@ jQuery(document).on('ready', function () {
         });
     });
 
+        //   New Code
+        jQuery(document).ready(function () {
+            jQuery('.getUserButton').on('click', function () {
+                // alert("Here---");
+                jQuery('body').append(loader_html);
+    
+                jQuery.ajax({
+                    type: "POST",
+                    url: scripts_vars.ajaxurl,
+                    data: 'userData=' + '&action=getLinkingUser',
+                    dataType: "json",
+                    success: function (response) {
+                        jQuery('body').find('.provider-site-wrap').remove();
+                        console.log(response);
+                    }
+                });
+            })
+        });
+        //   End New Code
+
+        // Add User API CODE
+
+        // jQuery(document).ready(function() {
+        //     jQuery('.getUserButton').on('click', function() {
+        //         alert("Here---");
+        //         jQuery('body').append(loader_html);
+              
+        //         jQuery.ajax( {
+        //             url: 'http://localhost/bahria/wp-json/users/create',
+        //             method: 'POST', 
+        //             contentType: "application/json; charset=utf-8",  
+        //             dataType: "json", 
+        //             data:JSON.stringify({
+        //                 'username' : 'testmember',
+        //                 'email' : 'testmember@gmail.com',
+        //                 'password' : '123456'
+        //             })
+        //         } ).done( function ( response ) {
+        //             console.log( response );
+        //         } )
+        //     })
+        //   });	
+
+        // End Add User API CODE
+
     // // Jquery Category Toogle
     jQuery(document).ready(function() {
         jQuery('.register_type').on('change', function() {
